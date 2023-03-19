@@ -1,0 +1,39 @@
+<%= render 'shared/header'%>
+
+<body>
+  <div class="user-show-container">
+    <div class="user-profile">
+      <div class="user-show-icon">
+        <%= image_tag "human.jpg" %>
+      </div>
+      <div class="user-name">
+        <h1><%= @user.nickname %></h1>
+        <%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'edit-profile-button' %>
+      </div>
+    </div>
+    <div class="user-introduction">
+      <%= @user.introduction %>
+    </div>
+    <hr>
+    <div class="room-list-container">
+      <ul class="room-list">
+        <li class="room-item">
+          <div class="room-info">
+            <h3 class="room-name">Fitness Chat Room</h3>
+            <div class="room-meta">
+              <span class="room-created">Created on 3/17/2023</span>
+              <span class="room-level">Level 2</span>
+            </div>
+            <div class="room-habit">
+              <span>Habit: Exercise 3 times a week</span>
+            </div>
+            <div class="room-user">
+              <span>Created by: John Doe</span>
+            </div>
+          </div>
+				  <a href="#" class="room-link">Join</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>

@@ -2,7 +2,7 @@
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
       <% if user_signed_in? %>
-      <li class="nav-item"><%= link_to "My Page", "#", class: "nav-link link-dark px-2 active" %></li>
+      <li class="nav-item"><%= link_to "My Page", user_path(current_user.id), class: "nav-link link-dark px-2 active" %></li>
       <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Create Room</a></li>
       <li class="nav-item"><a href="#" class="nav-link link-dark px-2">My Rooms</a></li>
       <% end %>
