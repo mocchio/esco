@@ -1,0 +1,75 @@
+body {
+  background-color: #f2f2f2;
+  font-family: sans-serif;
+}
+
+.room-new-container {
+  margin: 0 auto;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.room-new-info {
+  margin-bottom: 20px;
+}
+
+.room-new-title {
+  margin: 0 auto;
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 30px;
+  font-weight: bold;
+}
+
+.room-new-details {
+  flex: 1;
+  padding-bottom: 20px;
+}
+
+.room-new-details label {
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.room-new-details input[type="text"],
+.room-new-details textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.room-new-details select {
+  width: 7%;
+  margin-bottom: 20px;
+}
+
+.room-new-details button[type="submit"] {
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.room-new-details button[type="submit"]:hover {
+  background-color: #444;
+}
+
+.room-new-button {
+  background-color: #1c597f;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+}
+
+.room-create-button {
+  text-align: center;
+}

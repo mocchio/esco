@@ -1,4 +1,4 @@
-.second-header {
+.special-header {
   width: 100%;
   min-width: 800px;
   height: 130px;
@@ -8,7 +8,7 @@
   justify-content: center;
 }
 
-.second-logo {
+.special-logo {
   width: 40px;
   height: 40px;
   background-color: #f5f5f5;
