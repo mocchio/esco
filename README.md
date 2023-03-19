@@ -1,24 +1,60 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column                 | Type   | Option                     |
+| ---------------------- | ------ | -------------------------- |
+| email                  | string | null: false, unique: true  |
+| encrypted_password     | string | null: false                |
+| nickname               | string | null: false                |
+| last_name              | string | null: false                |
+| first_name             | string | null: false                |
+| last_name_kana         | string | null: false                |
+| first_name_kana        | string | null: false                |
+| birthday               | date   | null: false                |
+| introduction           | text   | null: false                |
 
-* Ruby version
+### Association
+- has_many :room_users
+- has_many :rooms, through: :room_users
+- has_many :chats
 
-* System dependencies
 
-* Configuration
+## roomsテーブル
 
-* Database creation
+| Column    | Type    | Option       |
+| --------- | ------- | ------------ |
+| name      | string  | null: false  |
+| level_id  | integer | null: false  |
+| habit     | string  | null: false  |
+| rule      | text    | null: false  |
 
-* Database initialization
+### Association
+- has_many :room_users
+- has_many :users, through: :room_users
+- has_many :chats
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## room_usersテーブル
 
-* Deployment instructions
+| Column   | Type       | Option                         |
+| -------- | ---------- | ------------------------------ |
+| user     | references | null: false, foreign_key: true |
+| room     | references | null: false, foreign_key: true |
 
-* ...
+### Association
+- belongs_to :usr
+- belongs_to :room
+
+
+## chatsテーブル
+
+| Column   | Type       | Option                          |
+| -------- | ---------- | ------------------------------- |
+| messages | string     |                                 |
+| user     | references | null: false, foreign_key: true  |
+| room     | references | null: false, foreign_key: true  |
+
+### Association
+- belongs_to :user
+- belongs_to :room
