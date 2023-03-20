@@ -41,8 +41,12 @@ body {
   margin-bottom: 20px;
 }
 
-.room-new-details select {
+.room-new-level {
   width: 7%;
+  margin-bottom: 20px;
+}
+
+.room-new-menmber {
   margin-bottom: 20px;
 }
 

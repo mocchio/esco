@@ -12,7 +12,15 @@
           <%= f.label :name, value: "ルーム名" %>
           <%= f.text_field :name, id: "name" %>
           <%= f.label :level, "レベル" %>
-          <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class: "form-control"}) %>
+          <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class: "room-new-level"}) %>
+          <%= f.label :level, "メンバー" %>
+          <select name="room[user_ids][]" class="room-new-menmber">
+            <option value=<%= current_user.id%> type="hidden">今は選択しない</option>
+            <% User.where.not(id: current_user.id).each do |user| %>
+              <option value=<%= user.id %>><%= user.nickname %></option>
+            <% end %>
+          </select>
+          <%# <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>
           <%= f.label :habit, value: "達成したい習慣" %>
           <%= f.text_field :habit, id: "habit" %>
           <%= f.label :rule, value: "ルール" %>
