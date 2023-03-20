@@ -2,19 +2,26 @@
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
       <% if user_signed_in? %>
-      <li class="nav-item"><%= link_to "My Page", user_path(current_user.id), class: "nav-link link-dark px-2 active" %></li>
-      <li class="nav-item"><%= link_to "Create Room", new_room_path, class: "nav-link link-dark px-2" %></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">My Rooms</a></li>
+      <li class="nav-item"><%= link_to "My Page", user_path(current_user.id), class: "nav-link link-dark px-2 active", id: "header-menu1" %></li>
+      <li class="nav-item"><%= link_to "Create Room", new_room_path, class: "nav-link link-dark px-2", id: "header-menu2" %></li>
+      <li class="nav-item"><span class="nav-link link-dark px-2", id="header-menu3">My Rooms</span></li>
+      <li class="menu-lists hidden" id="menu3-pull-down">
+      <% current_user.rooms.each do |room|%>
+        <div class="pull-down-list"><%=room.name%></div>
+      <% end %>
+      </li>
       <% end %>
     </ul>
 
+    
+
     <ul class="nav">
       <% if user_signed_in? %>
-      <li class="nav-item"><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-link link-dark px-2" %></li>
-      <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link link-dark px-2" %></li>
+      <li class="nav-item"><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-link link-dark px-2", id: "user-name" %></li>
+      <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link link-dark px-2", id: "log-out-btn" %></li>
       <% else %>
-      <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "nav-link link-dark px-2" %></li>
-      <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "nav-link link-dark px-2" %></li>
+      <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "nav-link link-dark px-2", id: "log-in-btn" %></li>
+      <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "nav-link link-dark px-2", id: "user-registration" %></li>
       <% end %>
     </ul>
   </div>

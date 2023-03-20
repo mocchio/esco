@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2023_03_19_110700) do
     t.integer "level_id", null: false
     t.string "habit", null: false
     t.text "rule", null: false
+    t.integer "creator_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

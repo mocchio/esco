@@ -30,7 +30,9 @@
               <span>達成したい習慣: <%=room.habit%></span>
             </div>
             <div class="room-user">
-              <span>作成者: user</span>
+              <% if room.creator %>
+              <span>作成者: <%= room.creator.nickname %></span>
+              <% end %>
             </div>
           </div>
 				  <a href="#" class="room-link">Join</a>
