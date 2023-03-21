@@ -53,7 +53,7 @@
 
 | Column   | Type       | Option                          |
 | -------- | ---------- | ------------------------------- |
-| messages | string     |                                 |
+| message  | string     |                                 |
 | user     | references | null: false, foreign_key: true  |
 | room     | references | null: false, foreign_key: true  |
 

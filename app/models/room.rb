@@ -7,6 +7,7 @@ class Room < ApplicationRecord
 
   has_many :room_users, dependent: :destroy
   has_many :users, through: :room_users
+  has_many :chats
 
   belongs_to :creator, class_name: "User"
 end
