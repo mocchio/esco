@@ -1,0 +1,35 @@
+<%= render "shared/header"%>
+<%= render "shared/second-header"%>
+
+<body>
+  <div class="room-new-container">
+    <div class="room-new-info">
+      <div class="room-new-title">
+        <p>新規チャットルーム作成</p>
+      </div>
+      <div class="room-new-details">
+        <%= form_with(model: @room, url: rooms_path, local: true) do |f| %>
+          <%= f.label :name, value: "ルーム名" %>
+          <%= f.text_field :name, id: "name" %>
+          <%= f.label :level, "レベル" %>
+          <%= f.collection_select(:level_id, Level.all, :id, :name, {}, {class: "room-new-level"}) %>
+          <%= f.label :level, "メンバー" %>
+          <select name="room[user_ids][]" class="room-new-member">
+            <option value="">今は選択しない</option>
+            <% User.where.not(id: current_user.id).each do |user| %>
+              <option value=<%= user.id %>><%= user.nickname %></option>
+            <% end %>   
+          </select>
+          <input name="room[user_ids][]" type="hidden" value=<%= current_user.id%>>
+          <%= f.label :habit, value: "達成したい習慣" %>
+          <%= f.text_field :habit, id: "habit" %>
+          <%= f.label :rule, value: "ルール" %>
+          <%= f.text_area :rule, id: "rule" %>
+          <div class="room-create-button">
+            <%= f.submit "作成", class: "room-new-button" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</body>

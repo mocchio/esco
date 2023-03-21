@@ -22,17 +22,19 @@
 
 ## roomsテーブル
 
-| Column    | Type    | Option       |
-| --------- | ------- | ------------ |
-| name      | string  | null: false  |
-| level_id  | integer | null: false  |
-| habit     | string  | null: false  |
-| rule      | text    | null: false  |
+| Column     | Type    | Option       |
+| ---------- | ------- | ------------ |
+| name       | string  | null: false  |
+| level_id   | integer | null: false  |
+| habit      | string  | null: false  |
+| rule       | text    | null: false  |
+| creator_id | integer | null: false  |
 
 ### Association
 - has_many :room_users
 - has_many :users, through: :room_users
 - has_many :chats
+- belongs_to :creator, class_name: "User"
 
 
 ## room_usersテーブル

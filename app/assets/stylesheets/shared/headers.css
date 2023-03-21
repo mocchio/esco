@@ -47,3 +47,16 @@
 .search-icon {
   width: 100%;
 }
+
+.hidden{
+  display: none;
+}
+
+.pull-down-list {
+  margin-left: 5px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  border: 1px solid #CCCCCC;
+  padding: 0 20px;
+}

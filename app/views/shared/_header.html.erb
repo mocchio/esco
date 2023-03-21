@@ -2,36 +2,27 @@
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
       <% if user_signed_in? %>
-      <li class="nav-item"><%= link_to "My Page", user_path(current_user.id), class: "nav-link link-dark px-2 active" %></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">Create Room</a></li>
-      <li class="nav-item"><a href="#" class="nav-link link-dark px-2">My Rooms</a></li>
+      <li class="nav-item"><%= link_to "My Page", user_path(current_user.id), class: "nav-link link-dark px-2 active", id: "header-menu1" %></li>
+      <li class="nav-item"><%= link_to "Create Room", new_room_path, class: "nav-link link-dark px-2", id: "header-menu2" %></li>
+      <li class="nav-item"><span class="nav-link link-dark px-2", id="header-menu3">My Rooms</span></li>
+      <li class="menu-lists hidden" id="menu3-pull-down">
+      <% current_user.rooms.each do |room|%>
+        <div class="pull-down-list"><%=room.name%></div>
+      <% end %>
+      </li>
       <% end %>
     </ul>
 
-    <%# <%= link_to "My Page", user_path, class: "nav-link link-dark px-2 active", aria-current: "page" %>
+    
+
     <ul class="nav">
       <% if user_signed_in? %>
-      <li class="nav-item"><%= link_to current_user.nickname, "#", class: "nav-link link-dark px-2" %></li>
-      <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link link-dark px-2" %></li>
+      <li class="nav-item"><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-link link-dark px-2", id: "user-name" %></li>
+      <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link link-dark px-2", id: "log-out-btn" %></li>
       <% else %>
-      <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "nav-link link-dark px-2" %></li>
-      <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "nav-link link-dark px-2" %></li>
+      <li class="nav-item"><%= link_to 'ログイン', new_user_session_path, class: "nav-link link-dark px-2", id: "log-in-btn" %></li>
+      <li class="nav-item"><%= link_to '新規登録', new_user_registration_path, class: "nav-link link-dark px-2", id: "user-registration" %></li>
       <% end %>
     </ul>
   </div>
 </nav>
-
-<header class="py-3 mb-4 border-bottom">
-  <div class="container d-flex flex-wrap justify-content-center">
-    <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
-      <%= image_tag "logo.jpg", class:"bi me-2", width:"40", height:"40" %>
-      <span class="fs-4">Esco</span>
-    </a>
-    <form class="col-12 col-lg-auto mb-3 mb-lg-0">
-      <input type="search" class="form-control" placeholder="Search..." aria-label="Search">
-      <button class="search-button">
-        <%= image_tag "search.png", class:"search-icon" %>
-      </button>
-    </form>
-  </div>
-</header>

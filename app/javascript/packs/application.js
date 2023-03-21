@@ -4,11 +4,12 @@
 // that code so it'll be compiled.
 
 require("@rails/ujs").start()
-require("turbolinks").start()
+// require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 import "bootstrap"
 import "../stylesheets/application"
+require("../header")
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference

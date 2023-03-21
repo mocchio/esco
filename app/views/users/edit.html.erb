@@ -11,9 +11,11 @@
         <%= form_with model: current_user, local: true do |f| %>
           <%= f.label :nickname, value: "ニックネーム" %>
           <%= f.text_field :nickname, id: "nickname" %>
-          <%= f.label :introduce, value: "自己紹介" %>
+          <%= f.label :introduction, value: "自己紹介" %>
           <%= f.text_area :introduction, id: "introduction" %>
-          <%= f.submit "更新", class: "edit-button" %>
+          <div class="update-button">
+            <%= f.submit "更新", class: "edit-button" %>
+          </div>
         <% end %>
       </div>
     </div>

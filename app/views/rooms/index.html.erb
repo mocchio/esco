@@ -1,4 +1,5 @@
 <%= render "shared/header" %>
+<%= render "shared/second-header" %>
 
 <div class="content">
   <%# 画面上部の「Change Your Life」帯部分 %>
@@ -16,78 +17,31 @@
   <div class="room-list-container">
     <div class="room-list-header">
       <h2>Chat Rooms</h2>
+      <% @rooms.each do |room| %>
+      <ul class="room-list">
+        <li class="room-item">
+          <div class="room-info">
+           <h3 class="room-name"><%=room.name%></h3>
+            <div class="room-meta">
+              <span class="room-created"><%=room.created_at%></span>
+              <span class="room-level">Level <%=room.level.name%></span>
+            </div>
+            <div class="room-habit">
+              <span>達成したい習慣: <%=room.habit%></span>
+            </div>
+            <div class="room-user">
+              <% if room.creator %>
+              <span>作成者: <%= room.creator.nickname %></span>
+              <% end %>
+            </div>
+          </div>
+          <div class="room-buttons">
+            <%=link_to "詳細", room_path(room.id), class: "room-show-link" %>
+            <a href="#" class="room-join-link">Join</a> 
+          </div>
+        </li>   
+      </ul>
+      <% end %>
     </div>
-    <ul class="room-list">
-      <li class="room-item">
-        <div class="room-info">
-          <h3 class="room-name">Fitness Chat Room</h3>
-          <div class="room-meta">
-            <span class="room-created">Created on 3/17/2023</span>
-            <span class="room-level">Level 2</span>
-          </div>
-          <div class="room-habit">
-            <span>Habit: Exercise 3 times a week</span>
-          </div>
-          <div class="room-user">
-            <span>Created by: John Doe</span>
-          </div>
-        </div>
-				<a href="#" class="room-link">Join</a>
-      </li>
-    
-      <li class="room-item">
-        <div class="room-info">
-          <h3 class="room-name">Meditation Chat Room</h3>
-          <div class="room-meta">
-            <span class="room-created">Created on 3/16/2023</span>
-            <span class="room-level">Level 1</span>
-          </div>
-          <div class="room-habit">
-            <span>Habit: Meditate 10 minutes a day</span>
-          </div>
-          <div class="room-user">
-            <span>Created by: Jane Smith</span>
-          </div>
-        </div>
-				<a href="#" class="room-link">Join</a>
-      </li>
-
-			<li class="room-item">
-        <div class="room-info">
-          <h3 class="room-name">Baseball Chat Room</h3>
-          <div class="room-meta">
-            <span class="room-created">Created on 3/17/2023</span>
-            <span class="room-level">Level 3</span>
-          </div>
-          <div class="room-habit">
-            <span>Habit: catch ball everyday</span>
-          </div>
-          <div class="room-user">
-            <span>Created by: Takeo Kikuchi</span>
-          </div>
-        </div>
-				<a href="#" class="room-link">Join</a>
-      </li>
-
-			<li class="room-item">
-        <div class="room-info">
-          <h3 class="room-name">Baseball Chat Room</h3>
-          <div class="room-meta">
-            <span class="room-created">Created on 3/17/2023</span>
-            <span class="room-level">Level 3</span>
-          </div>
-          <div class="room-habit">
-            <span>Habit: catch ball everyday</span>
-          </div>
-          <div class="room-user">
-            <span>Created by: Takeo Kikuchi</span>
-          </div>
-        </div>
-				<a href="#" class="room-link">Join</a>
-      </li>
-    
-      <!-- Add more chat rooms here -->
-    
-    </ul>
   </div>
 </div>

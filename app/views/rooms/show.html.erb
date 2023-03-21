@@ -1,0 +1,38 @@
+<%= render "shared/header"%>
+<%= render "shared/second-header"%>
+
+<div class="room-box">
+  <div class="room-explain-box">
+    <span><%= @room.name %></span>
+  </div>
+  <table class="detail-table">
+    <tbody>
+      <tr>
+        <th class="detail-room">ホスト</th>
+        <td class="detail-value"><%= @room.creator.nickname %></td>
+      </tr>
+      <tr>
+        <th class="detail-room">ルームレベル</th>
+        <td class="detail-value"><%= @room.level.name %></td>
+      </tr>
+      <tr>
+        <th class="detail-room">達成したい習慣</th>
+        <td class="detail-value"><%= @room.habit %></td>
+      </tr>
+      <tr>
+        <th class="detail-room">ルール</th>
+        <td class="detail-value"><%= @room.rule %></td>
+      </tr>
+    </tbody>
+  </table>
+  <% if user_signed_in? %>
+    <% if current_user.id == @room.creator_id %>
+    <div class="room-e-d_btns">
+      <%= link_to '編集', edit_room_path(@room), class: 'room-edit-btn' %>
+      <%= link_to '削除', room_path(@room), class: 'room-destroy-btn', method: :delete %>
+    </div>
+    <% elsif !@room.users.include?(current_user) %>
+    <input type="submit" name="commit" value="参加" class="room-join-btn">
+    <% end %>
+  <% end %>
+</div>
