@@ -1,0 +1,89 @@
+.room-box {
+  background-color: #FFF;
+  width: 70vw;
+  min-width: 1200px;
+  padding: 10vh 15vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.room-explain-box {
+  font-size: 30px;
+  margin-bottom: 30px;
+  overflow-wrap: anywhere;
+  font-weight: bold;
+}
+
+.detail-table {
+  margin-bottom: 30px;
+  width: 100%;
+}
+
+.detail-room {
+  width: 20%;
+  background-color: #eee;
+  border: 1px solid #dedede;
+  font-size: 14px;
+  text-align: center;
+}
+
+.detail-value {
+  width: 80%;
+  padding: 20px;
+  border: 1px solid #dedede;
+  font-size: 14px;
+}
+
+.room-join-btn {
+  background-color: #f00;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+}
+
+.room-e-d_btns {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 50px;
+}
+
+.room-edit-btn {
+  background-color: #753244;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.room-edit-btn:hover {
+  color: #fff;
+}
+
+.room-destroy-btn {
+  background-color: #696969;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.room-destroy-btn:hover {
+  color: #fff;
+}

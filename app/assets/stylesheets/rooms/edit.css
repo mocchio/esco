@@ -63,8 +63,8 @@ body {
   background-color: #444;
 }
 
-.room-new-button {
-  background-color: #1c597f;
+.room-edit-button {
+  background-color: #753244;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -74,6 +74,6 @@ body {
   margin-top: 20px;
 }
 
-.room-create-button {
+.room-update-button {
   text-align: center;
 }

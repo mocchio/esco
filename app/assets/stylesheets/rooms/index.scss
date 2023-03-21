@@ -81,14 +81,30 @@
   font-size: 0.8em;
 }
 
-.room-link {
+.room-show-link {
+  background-color: #f78733;
+  color: #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: block;
+  margin: 10px;
+}
+
+.room-show-link:hover {
+  color: #fff;
+}
+
+.room-join-link {
   background-color: #f00;
   color: #fff;
   border-radius: 5px;
   padding: 5px 10px;
   text-decoration: none;
+  display: block;
+  margin: 10px;
 }
 
-.room-link:hover {
+.room-join-link:hover {
   color: #fff;
 }

@@ -35,7 +35,10 @@
               <% end %>
             </div>
           </div>
-				  <a href="#" class="room-link">Join</a>
+          <div class="room-buttons">
+            <%=link_to "詳細", room_path(room.id), class: "room-show-link" %>
+            <a href="#" class="room-join-link">Join</a> 
+          </div>
         </li>   
       </ul>
       <% end %>
