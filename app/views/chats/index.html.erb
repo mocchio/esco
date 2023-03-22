@@ -1,0 +1,69 @@
+<div class="chat">
+  <div class="chat-logo">
+    <%= image_tag "logo.jpg", class: "chat-logo-jpg"%>
+  </div>
+  <div class="chat-title">
+    <%= link_to "Esco", "/", class: "chat-title-string"%>
+  </div>
+</div>
+
+<div class="chat-part">
+  <div class="side-bar">
+    <div class="side-bar__top">
+      <div class="user_name">
+        <%= link_to current_user.nickname, user_path(current_user.id) %>
+      </div>
+      <div class="chat-btn">
+        <%= link_to "Create Room", new_room_path %>
+      </div>
+    </div>
+
+    <div class="side-bar__middle">
+      <% current_user.rooms.each do |room| %>
+        <div class="side-bar-room">
+          <div class="room_name">
+            <%= link_to room.name, "#" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="chat-main">
+    <div class="chat-header">
+      <h2><%=@room.name%></h2>
+    </div>
+    <div class="chat-body">
+      <div class="message received">
+        <div class="user-icon">
+          <%=image_tag "human.jpg", alt:"User 1"%>
+        </div>
+        <div class="message-content">
+          <p>こんにちは！</p>
+        </div>
+        <div class="message-date">
+          <p>2023/3/21</p>
+        </div>
+      </div>
+      <div class="message sent">
+        <div class="message-date">
+          <p>2023/3/21</p>
+        </div>
+        <div class="message-content">
+          <p>やっほー！</p>
+        </div>
+      </div>
+    </div>
+    <div class="chat-footer">
+      <%= form_with model: [@room, @chat], class: 'form', local: true do |f| %>
+        <%= f.text_field :message, class: 'form-message' %>
+        <%# <label class="form-image">
+          <span class="image-file">画像</span>
+          <%= f.file_field :image, class: 'hidden' %>
+        <%# </label> %>
+        <%= f.submit '送信', class: 'form-submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>
