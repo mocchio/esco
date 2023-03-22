@@ -39,7 +39,7 @@
         <% if chat.user == current_user%>
           <div class="message sent">
             <div class="message-date">
-              <p><%=chat.created_at%></p>
+              <p><%=l chat.created_at%></p>
             </div>
             <div class="message-content">
               <p><%=chat.message%></p>
@@ -54,7 +54,7 @@
               <p><%=chat.message%></p>
             </div>
             <div class="message-date">
-              <p><%=chat.created_at%></p>
+              <p><%=l chat.created_at%></p>
             </div>
           </div>
           <div class="message-user-name">
