@@ -50,6 +50,9 @@
               <p><%=chat.message%></p>
             </div>
           </div>
+          <div class="chat-image-sent">
+            <%= image_tag chat.image.variant(resize: '300x300'), class: 'chat-image-content' if chat.image.attached? %>
+          </div>
         <% else %>
           <div class="message received">
             <div class="user-icon">
@@ -65,16 +68,19 @@
           <div class="message-user-name">
             <p><%=chat.user.nickname%></p>
           </div>
+          <div class="chat-image-received">
+            <%= image_tag chat.image.variant(resize: '300x300'), class: 'chat-image-content' if chat.image.attached? %>
+          </div>
         <% end %>
       <% end %>
     </div>
     <div class="chat-footer">
       <%= form_with model: [@room, @chat], class: 'form', local: true do |f| %>
         <%= f.text_field :message, class: 'form-message' %>
-        <%# <label class="form-image">
+        <label class="form-image">
           <span class="image-file">画像</span>
           <%= f.file_field :image, class: 'hidden' %>
-        <%# </label> %>
+        </label>
         <%= f.submit '送信', class: 'form-submit' %>
       <% end %>
     </div>

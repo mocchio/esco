@@ -34,6 +34,8 @@
   height: 100vh;
 }
 
+
+/* サイドバー */
 .side-bar {
   background-color: #808080;
   width: 300px;
@@ -92,6 +94,8 @@
   color: white;
 }
 
+
+/* メイン */
 .chat-main {
   background-color: #f5f5f5;
   font-family: Arial, sans-serif;
@@ -143,6 +147,15 @@
   padding: 10px;
   border-radius: 10px;
   max-width: 75%;
+}
+
+.chat-image-sent {
+  text-align: right;
+}
+
+.chat-image-received {
+  text-align: left;
+  padding-left: 70px;
 }
 
 .message p {
@@ -236,4 +249,14 @@
 
 .form-submit:hover {
   background-color: #555;
+}
+
+.form-image {
+  margin-left: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 20px;
+  background-color: #666;
+  color: #fff;
+  cursor: pointer;
 }
