@@ -143,13 +143,8 @@
 
 .message.sent {
   justify-content: flex-end;
+  margin-bottom: 20px;
 }
-
-/* .message .message-content {
-  padding: 10px;
-  border-radius: 10px;
-  background-color: #eee;
-} */
 
 .message.sent .message-content {
   background-color: #666;
@@ -167,16 +162,23 @@
   margin: 0 10px;
 }
 
+.user-icon img {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
 .message-date {
   margin: 0 10px;
   padding-top: 25px;
   font-size: 12px;
 }
 
-.user-icon img {
-  height: 50px;
+.message-user-name {
+  font-size: 10px;
+  padding-left: 10px;
+  text-align: center;
   width: 50px;
-  border-radius: 50%;
 }
 
 .chat-footer {

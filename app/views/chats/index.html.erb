@@ -35,25 +35,33 @@
       <h2><%=@room.name%></h2>
     </div>
     <div class="chat-body">
-      <div class="message received">
-        <div class="user-icon">
-          <%=image_tag "human.jpg", alt:"User 1"%>
-        </div>
-        <div class="message-content">
-          <p>こんにちは！</p>
-        </div>
-        <div class="message-date">
-          <p>2023/3/21</p>
-        </div>
-      </div>
-      <div class="message sent">
-        <div class="message-date">
-          <p>2023/3/21</p>
-        </div>
-        <div class="message-content">
-          <p>やっほー！</p>
-        </div>
-      </div>
+      <% @chats.each do |chat| %>
+        <% if chat.user == current_user%>
+          <div class="message sent">
+            <div class="message-date">
+              <p><%=chat.created_at%></p>
+            </div>
+            <div class="message-content">
+              <p><%=chat.message%></p>
+            </div>
+          </div>
+        <% else %>
+          <div class="message received">
+            <div class="user-icon">
+              <%=image_tag "human.jpg", alt:"User 1"%>
+            </div>
+            <div class="message-content">
+              <p><%=chat.message%></p>
+            </div>
+            <div class="message-date">
+              <p><%=chat.created_at%></p>
+            </div>
+          </div>
+          <div class="message-user-name">
+            <p><%=chat.user.nickname%></p>
+          </div>
+        <% end %>
+      <% end %>
     </div>
     <div class="chat-footer">
       <%= form_with model: [@room, @chat], class: 'form', local: true do |f| %>

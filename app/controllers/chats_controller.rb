@@ -2,6 +2,7 @@ class ChatsController < ApplicationController
   def index
     @chat = Chat.new
     @room = Room.find(params[:room_id])
+    @chats = @room.chats.includes(:user)
   end
 
   def create
@@ -10,6 +11,7 @@ class ChatsController < ApplicationController
     if @chat.save
       redirect_to room_chats_path(@room)
     else
+      @chats = @room.chats.includes(:user)
       render :index
     end
   end
