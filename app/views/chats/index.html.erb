@@ -33,6 +33,11 @@
   <div class="chat-main">
     <div class="chat-header">
       <h2><%=@room.name%></h2>
+      <% if current_user == @room.creator %>
+        <div class="chat-retire-btn">
+          <%= link_to "削除する", room_path(@room), method: :delete %>
+        </div>
+      <% end %>
     </div>
     <div class="chat-body">
       <% @chats.each do |chat| %>

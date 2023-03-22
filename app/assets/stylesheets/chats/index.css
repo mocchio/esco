@@ -2,6 +2,7 @@
   height: 80px;
   padding-left: 40px;
   display: flex;
+  justify-content: center;
 }
 
 .chat-logo {
@@ -30,7 +31,6 @@
 
 .chat-part {
   display: flex;
-  /* flex-direction: column; */
   height: 100vh;
 }
 
@@ -104,12 +104,28 @@
 .chat-header {
   background-color: #666;
   color: #fff;
-  text-align: center;
   height: 100px;
+  display: flex;
+  padding: 0 20px;
 }
 
 .chat-header h2 {
   line-height: 100px;
+  margin: 0 auto;
+}
+
+.chat-retire-btn a {
+  font-size: 13px;
+  color: #FF2D2D;
+  border: 2px solid #FF2D2D;
+  padding: 14px;
+  text-decoration: none;
+  font-weight: bold;
+  line-height: 100px;
+}
+
+.chat-retire-btn a:hover {
+  color: #FF2D2D;
 }
 
 .chat-body {
