@@ -52,11 +52,20 @@
   display: none;
 }
 
-.pull-down-list {
+.pull-down-lists {
   margin-left: 5px;
   height: 30px;
   line-height: 30px;
   text-align: center;
   border: 1px solid #CCCCCC;
   padding: 0 20px;
+}
+
+.pull-down-list {
+  text-decoration: none;
+  color: black;
+}
+
+.pull-down-list:hover {
+  color: black;
 }

@@ -1,0 +1,108 @@
+<div class="chat">
+  <div class="chat-logo">
+    <%= image_tag "logo.jpg", class: "chat-logo-jpg"%>
+  </div>
+  <div class="chat-title">
+    <%= link_to "Esco", "/", class: "chat-title-string"%>
+  </div>
+</div>
+
+<div class="chat-part">
+  <div class="side-bar">
+    <div class="side-bar__top">
+      <div class="user_name">
+        <%= link_to current_user.nickname, user_path(current_user.id) %>
+      </div>
+      <div class="chat-btn">
+        <%= link_to "Create Room", new_room_path %>
+      </div>
+    </div>
+
+    <div class="side-bar__middle">
+      <% current_user.rooms.each do |room| %>
+        <div class="side-bar-room">
+          <div class="room_name">
+            <%= link_to room.name, "#" %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="chat-main">
+    <div class="chat-header">
+      <h2><%=@room.name%></h2>
+      <% if current_user == @room.creator %>
+        <div class="chat-retire-btn">
+          <%= link_to "削除する", room_path(@room), method: :delete %>
+        </div>
+      <% end %>
+    </div>
+    <div class="chat-body">
+      <% @chats.each do |chat| %>
+        <% if chat.user == current_user%>
+          <div class="message sent">
+            <% if chat.message.present? %>
+              <div class="message-date">
+                <p><%=l chat.created_at%></p>
+              </div>
+              <div class="message-content">
+                <p><%=chat.message%></p>
+              </div>
+            <% end %>
+          </div>
+          <% if chat.image.attached? %>
+            <div class="chat-image-sent">
+              <div class="message-date">
+                <p><%=l chat.created_at%></p>
+              </div>
+              <%= image_tag chat.image.variant(resize: '300x300'), class: 'chat-image-content' %>
+            </div>
+          <% end %>
+        <% else %>
+          <div class="message received">
+            <% if chat.message.present? %>
+              <div class="user-icon">
+                <%=image_tag "human.jpg", alt:"User 1"%>
+                <div class="message-user-name">
+                  <p><%=chat.user.nickname%></p>
+                </div>
+              </div>
+              <div class="message-content">
+                <p><%=chat.message%></p>
+              </div>
+              <div class="message-date">
+                <p><%=l chat.created_at%></p>
+              </div>
+            <% end %>
+          </div>
+          <% if  chat.image.attached? %>
+            <div class="chat-image-received">
+              <div class="user-icon">
+                <%=image_tag "human.jpg", alt:"User 1"%>
+                <div class="message-user-name">
+                  <p><%=chat.user.nickname%></p>
+                </div>
+              </div>
+              <%= image_tag chat.image.variant(resize: '300x300'), class: 'chat-image-content' %>
+              <div class="message-date">
+                <p><%=l chat.created_at%></p>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+    <div class="chat-footer">
+      <%= form_with model: [@room, @chat], class: 'form', local: true do |f| %>
+        <%= f.text_field :message, class: 'form-message' %>
+        <label class="form-image">
+          <span class="image-file">画像</span>
+          <%= f.file_field :image, class: 'hidden' %>
+        </label>
+        <%= f.submit '送信', class: 'form-submit' %>
+      <% end %>
+    </div>
+  </div>
+</div>
