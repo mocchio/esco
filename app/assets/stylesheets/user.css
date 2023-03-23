@@ -169,6 +169,15 @@
   padding: 1px;
 }
 
+.error-alert {
+  text-align: center;
+  color: red;
+}
+
+.error-message::marker {
+  color: white;
+}
+
 /* ログイン画面 */
 .login-btn {
   width: 50%;

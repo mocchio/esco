@@ -69,3 +69,7 @@
 .pull-down-list:hover {
   color: black;
 }
+
+.nav a:hover {
+  color: black;
+}
