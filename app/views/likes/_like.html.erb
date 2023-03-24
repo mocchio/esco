@@ -1,0 +1,17 @@
+<% if user_signed_in? %>
+  <% if room.liked_by?(current_user) %>
+    <td>
+      <%= link_to room_like_path(room, room.likes), class: "like-link", method: :DELETE, remote: true do %>
+        <i class="fas fa-heart unlike-btn"></i>
+      <% end %>
+      <span class="likes-numbers"><%= room.likes.count%></span>
+    </td>
+  <% else %>
+    <td>
+      <%=link_to room_likes_path(room), class: "like-link", method: :POST, remote: true do %>
+        <i class="far fa-heart like-btn"></i>
+      <% end %>
+      <span class="likes-numbers"><%= room.likes.count%></span>
+    </td>
+  <% end %>
+<% end %>
