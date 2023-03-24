@@ -98,10 +98,13 @@
       <%= form_with model: [@room, @chat], class: 'form', local: true do |f| %>
         <%= f.text_field :message, class: 'form-message' %>
         <label class="form-image">
-          <span class="image-file">画像</span>
+          <i class="fa-sharp fa-solid fa-image"></i>
           <%= f.file_field :image, class: 'hidden' %>
         </label>
-        <%= f.submit '送信', class: 'form-submit' %>
+        <label class="form-submit">
+          <i class="fa-sharp fa-solid fa-paper-plane"></i>
+          <%= f.submit value: "", class: 'hidden' %>
+        </label>
       <% end %>
     </div>
   </div>

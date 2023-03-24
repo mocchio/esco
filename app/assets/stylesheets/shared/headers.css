@@ -73,3 +73,8 @@
 .nav a:hover {
   color: black;
 }
+
+.nav {
+  align-items: center;
+  justify-content: space-between;
+}
