@@ -60,3 +60,14 @@
 ### Association
 - belongs_to :user
 - belongs_to :room
+
+## likesテーブル
+
+| Column   | Type       | Option                          |
+| -------- | ---------- | ------------------------------- |
+| user     | references | null: false, foreign_key: true  |
+| room     | references | null: false, foreign_key: true  |
+
+### Association
+- belongs_to :user
+- belongs_to :room
