@@ -10,6 +10,7 @@ class Room < ApplicationRecord
   has_many :chats, dependent: :destroy
   has_many :likes
   belongs_to :creator, class_name: "User"
+  has_many :notifications, dependent: :destroy
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
