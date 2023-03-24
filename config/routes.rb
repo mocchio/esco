@@ -6,4 +6,5 @@ Rails.application.routes.draw do
     resources :chats, only: [:index, :create]
     resources :likes, only: [:create, :destroy]
   end
+  resources :notifications, only: :index
 end

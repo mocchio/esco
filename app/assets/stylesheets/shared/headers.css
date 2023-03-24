@@ -78,3 +78,8 @@
   align-items: center;
   justify-content: space-between;
 }
+
+.notification-bell {
+  text-decoration: none;
+  color: black;
+}
