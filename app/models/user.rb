@@ -14,10 +14,11 @@ class User < ApplicationRecord
   validates :birthday, presence: true
   validates :introduction, presence: true
 
-  has_many :room_users
+  has_many :room_users, dependent: :destroy
   has_many :rooms, through: :room_users
-  has_many :chats
-  has_many :likes
+  has_many :chats, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  has_many :requests, dependent: :destroy
   has_many :active_notifications, class_name: "Notification", foreign_key: "visitor_id", dependent: :destroy
   has_many :passive_notifications, class_name: "Notification", foreign_key: "visited_id", dependent: :destroy
 end

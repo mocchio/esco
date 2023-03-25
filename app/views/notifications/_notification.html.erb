@@ -15,9 +15,9 @@
         <% when 'like' then %>
           <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
           <%= "にいいねしました" %>
-        <%# <% when 'request' then %>
-          <%# <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %> %>
-          <%# <%= "への入室申請をしました" %>
+        <% when 'request' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "への入室申請をしました" %>
       <% end %>
     </span>
     <% if notification.checked == false%>
