@@ -8,10 +8,28 @@ class Room < ApplicationRecord
   has_many :room_users, dependent: :destroy
   has_many :users, through: :room_users
   has_many :chats, dependent: :destroy
-  has_many :likes
+  has_many :likes, dependent: :destroy
   belongs_to :creator, class_name: "User"
+  has_many :notifications, dependent: :destroy
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
+  end
+
+  def create_notification_like(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, creator_id, id, 'like'])
+
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        visited_id: creator_id,
+        action: 'like'
+      )
+      # 自分の投稿に対するいいねの場合は、通知済みとする
+      if notification.visitor_id == notification.visited_id
+        notification.checked = true
+      end
+      notification.save if notification.valid?
+    end
   end
 end

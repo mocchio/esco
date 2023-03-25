@@ -1,0 +1,40 @@
+.notification-index {
+  margin: 0 auto;
+}
+
+.notification-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.notification-user {
+  color: #1e8b61;
+}
+
+.notification-room {
+  color: #1e8b61;
+}
+
+.form-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.not-notifications {
+  text-align: center;
+  font-size: 18px;
+}
+
+.notification-update {
+  color: #003046;
+  text-decoration: none;
+  border: 1px solid #003046;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.notification-update:hover {
+  color: #003046;
+}

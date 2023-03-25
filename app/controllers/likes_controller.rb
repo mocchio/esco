@@ -4,6 +4,7 @@ class LikesController < ApplicationController
   def create
     like = current_user.likes.build(room_id: params[:room_id])
     like.save
+    @room.create_notification_like(current_user)
     render 'create.js.erb'
   end
 

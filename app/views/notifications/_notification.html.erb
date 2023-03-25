@@ -1,0 +1,33 @@
+<% visitor = notification.visitor %>
+<% visited = notification.visited %>
+
+<div class="col-md-6 mx-auto">
+  <div class="form-inline">
+    <span>
+      <%= link_to user_path(visitor), class:"notification-user" do %>
+        <%# <%= image_tag avatar_url(visitor).to_s, class: "icon_mini" %>
+        <strong>
+          <%= visitor.nickname %>
+        </strong>
+      <% end %>
+      さんが
+      <% case notification.action %>
+        <% when 'like' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "にいいねしました" %>
+        <%# <% when 'request' then %>
+          <%# <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %> %>
+          <%# <%= "への入室申請をしました" %>
+      <% end %>
+    </span>
+    <% if notification.checked == false%>
+      <span>
+        <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>
+      </span>
+    <% end %>
+  </div>
+  <%# <div class="small text-muted text-right">
+    <%= time_ago_in_words(notification.created_at).upcase %>
+  <%# </div> %>
+  <hr>
+</div>
