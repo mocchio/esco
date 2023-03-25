@@ -12,30 +12,16 @@
       <% end %>
       さんが
       <% case notification.action %>
-        <%# <% when 'follow' then %>
-          <%# <%= "あなたをフォローしました" %>
         <% when 'like' then %>
-          <%= link_to 'あなたのルーム', notification.room, style: "font-weight: bold;", class: "notification-room" %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
           <%= "にいいねしました" %>
-        <%# <% when 'comment' then %>
-          <%# <% if notification.post.user_id == visited.id %> 
-            <%# <%= link_to "あなたの投稿", notification.post, style: "font-weight: bold;" %> 
-          <%# <% else %> 
-            <%# <span> %>
-              <%# <%= link_to post_path(notification.post) do %> 
-                <%# <%= image_tag avatar_url(notification.post.user).to_s, class: "icon_mini" %>
-                <%# <strong> %>
-                  <%# <%= notification.post.user.name + 'さんの投稿' %>
-                <%# </strong> %>
-              <%# <% end %>
-            <%# </span> %>
-          <%# <% end %> 
-          <%# <%= "にコメントしました" %>
-          <%# <p class="text-muted mb-0"> %>
-            <%# <%= Comment.find_by(id: notification.comment_id)&.comment %>
-          <%# </p> %>
       <% end %>
     </span>
+    <% if notification.checked == false%>
+      <span>
+        <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>
+      </span>
+    <% end %>
   </div>
   <%# <div class="small text-muted text-right">
     <%= time_ago_in_words(notification.created_at).upcase %>

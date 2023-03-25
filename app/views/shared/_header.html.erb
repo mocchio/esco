@@ -19,10 +19,16 @@
       <% if user_signed_in? %>
       <li class="nav-item">
         <%= link_to(notifications_path, class: "notification-bell") do %>
-          <span class="fa-stack">
-            <i class="fa-sharp fa-solid fa-bell fa-stack-2x n-bell"></i>
-            <i class="fas fa-circle n-circle"></i>
-          </span>
+          <% if unchecked_notifications.any?%>
+            <span class="fa-stack">
+              <i class="fa-sharp fa-solid fa-bell fa-stack-2x n-bell"></i>
+              <i class="fas fa-circle n-circle"></i>
+            </span>
+          <% else %>
+            <span class="fa-stack">
+              <i class="fa-sharp fa-solid fa-bell fa-stack-2x n-bell"></i>
+            </span>
+          <% end %>
         <% end %>
       </li>
       <li class="nav-item"><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "nav-link link-dark px-2", id: "log-out-btn" %></li>

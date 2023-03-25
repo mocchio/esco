@@ -1,4 +1,3 @@
-
 <%= render "shared/header" %>
 <%= render "shared/second-header" %>
 
@@ -6,9 +5,8 @@
   <div class="notification-title">通知一覧</div>
   <!-- 自分の投稿に対するいいねは通知に表示しない -->
   <% notifications = @notifications.where.not(visitor_id: current_user.id) %>
-  <% if notifications.exists? %>
-    <%= render notifications %>
-  <% else %>
-    <p>通知はありません</p>
+  <%= render notifications %>
+  <% unless notifications.exists? %>
+    <div class="not-notifications">通知はありません</div>
   <% end %>
 </div>
