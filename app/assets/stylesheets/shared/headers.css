@@ -83,3 +83,22 @@
   text-decoration: none;
   color: black;
 }
+
+.fa-stack {
+  position: relative;
+  display: inline-block;
+}
+
+.n-bell {
+  font-size: 1.6em !important;
+  padding-top: 3px !important;
+  margin-left: 4px;
+}
+
+.n-circle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: red;
+  font-size: 0.8em;
+}

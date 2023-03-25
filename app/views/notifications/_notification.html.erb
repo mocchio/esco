@@ -4,7 +4,7 @@
 <div class="col-md-6 mx-auto">
   <div class="form-inline">
     <span>
-      <%= link_to user_path(visitor) do %>
+      <%= link_to user_path(visitor), class:"notification-user" do %>
         <%# <%= image_tag avatar_url(visitor).to_s, class: "icon_mini" %>
         <strong>
           <%= visitor.nickname %>
@@ -15,7 +15,7 @@
         <%# <% when 'follow' then %>
           <%# <%= "あなたをフォローしました" %>
         <% when 'like' then %>
-          <%= link_to 'あなたのルーム', notification.room, style: "font-weight: bold;" %>
+          <%= link_to 'あなたのルーム', notification.room, style: "font-weight: bold;", class: "notification-room" %>
           <%= "にいいねしました" %>
         <%# <% when 'comment' then %>
           <%# <% if notification.post.user_id == visited.id %> 

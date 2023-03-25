@@ -1,0 +1,18 @@
+.notification-index {
+  padding: 0 auto;
+}
+
+.notification-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.notification-user {
+  color: #1e8b61;
+}
+
+.notification-room {
+  color: #1e8b61;
+}
