@@ -52,23 +52,30 @@
   display: none;
 }
 
+.menu-lists {
+  position: fixed;
+  margin-top: 20px;
+  margin-left: 250px;
+}
+
 .pull-down-lists {
   margin-left: 5px;
   height: 30px;
   line-height: 30px;
   text-align: center;
-  border: 1px solid #CCCCCC;
+  border: 1px solid #d3d3d3;
   padding: 0 20px;
+  background-color: #c0c0c0;
 }
 
 .pull-down-list {
   text-decoration: none;
-  color: black;
+  color: #696969;
 }
 
-.pull-down-list:hover {
-  color: black;
-}
+/* .pull-down-list:hover {
+  color: white;
+} */
 
 .nav a:hover {
   color: black;
