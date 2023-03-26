@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :chats, only: [:index, :create]
     resources :likes, only: [:create, :destroy]
+    resources :requests, only: :create
   end
   resources :notifications, only: [:index, :update]
 end

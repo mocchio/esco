@@ -1,4 +1,6 @@
-/* 新規登録画面 */
+/*****************************************************
+               新規登録画面
+*****************************************************/
 .registration-main {
   width: 100%;
   min-width: 800px;
@@ -178,7 +180,9 @@
   color: white;
 }
 
-/* ログイン画面 */
+/*****************************************************
+               ログイン画面
+*****************************************************/
 .login-btn {
   width: 50%;
   margin: 0 auto;
@@ -201,7 +205,9 @@
   color: red;
 }
 
-/* マイページ画面 */
+/*****************************************************
+               マイページ画面
+*****************************************************/
 .user-show-container {
   width: 100%;
   max-width: 960px;
@@ -262,13 +268,58 @@
   text-align: left;
 }
 
+.room-permission-btns {
+  /* display: flex;
+  justify-content: space-between; */
+  width: 100%;
+  /* padding: 0 50px; */
+  margin-top: 50px;
+  text-align: left;
+}
+
+.room-permission-btn {
+  background-color: red;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.room-permission-btn:hover {
+  color: #fff;
+}
+
+.room-destroy-btn {
+  background-color: #696969;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.room-destroy-btn:hover {
+  color: #fff;
+}
+
 hr {
   width: 100%;
   background-color: #888;
 }
 
 
-/* マイページ編集画面 */
+/*****************************************************
+               マイページ編集画面
+*****************************************************/
 body {
   background-color: #f2f2f2;
   font-family: sans-serif;

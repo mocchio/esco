@@ -45,6 +45,12 @@
   cursor: pointer;
   width: 30%;
   margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.room-join-btn:hover {
+  color: #fff;
 }
 
 .room-e-d_btns {
