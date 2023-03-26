@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_03_25_090448) do
+ActiveRecord::Schema.define(version: 2023_03_26_031906) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -65,6 +65,15 @@ ActiveRecord::Schema.define(version: 2023_03_25_090448) do
     t.index ["visitor_id"], name: "index_notifications_on_visitor_id"
   end
 
+  create_table "permissions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "room_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_permissions_on_room_id"
+    t.index ["user_id"], name: "index_permissions_on_user_id"
+  end
+
   create_table "requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
@@ -117,6 +126,8 @@ ActiveRecord::Schema.define(version: 2023_03_25_090448) do
   add_foreign_key "chats", "users"
   add_foreign_key "likes", "rooms"
   add_foreign_key "likes", "users"
+  add_foreign_key "permissions", "rooms"
+  add_foreign_key "permissions", "users"
   add_foreign_key "requests", "rooms"
   add_foreign_key "requests", "users"
   add_foreign_key "room_users", "rooms"
