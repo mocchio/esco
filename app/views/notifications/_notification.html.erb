@@ -20,6 +20,11 @@
           <%= "への入室申請をしました" %>
       <% end %>
     </span>
+    <% if notification.action == 'request'%>
+      <span>
+        <%=link_to "詳細を見る", user_path(visitor), class: "notification-user-show" %>
+      </span>
+    <% end %>
     <% if notification.checked == false%>
       <span>
         <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>

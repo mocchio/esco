@@ -28,13 +28,26 @@
 }
 
 .notification-update {
-  color: #003046;
+  color: #5673AD;
   text-decoration: none;
-  border: 1px solid #003046;
+  border: 1px solid #5673AD;
   padding: 5px;
   font-size: 15px;
 }
 
 .notification-update:hover {
-  color: #003046;
+  color: #5673AD;
+}
+
+.notification-user-show {
+  color: #f78733;
+  text-decoration: none;
+  border: 1px solid #f78733;
+  padding: 5px;
+  font-size: 15px;
+  margin-left: 120px;
+}
+
+.notification-user-show:hover {
+  color: #f78733;
 }

@@ -9,32 +9,48 @@
       </div>
       <div class="user-name">
         <h1><%= @user.nickname %></h1>
-        <%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'edit-profile-button' %>
+        <% if @user.id == current_user.id %> 
+          <%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'edit-profile-button' %>
+        <% end %> 
       </div>
     </div>
     <div class="user-introduction">
       <%= @user.introduction %>
     </div>
+    <% if (@user.requests.present?) && (@user != current_user) %>
+      <div class="room-permission-btns">
+        <%= link_to '追加する', "#", class: 'room-permission-btn' %>
+        <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
+      </div>
+    <% end %>
     <hr>
     <div class="room-list-container">
-      <ul class="room-list">
-        <li class="room-item">
-          <div class="room-info">
-            <h3 class="room-name">Fitness Chat Room</h3>
-            <div class="room-meta">
-              <span class="room-created">Created on 3/17/2023</span>
-              <span class="room-level">Level 2</span>
-            </div>
-            <div class="room-habit">
-              <span>Habit: Exercise 3 times a week</span>
-            </div>
-            <div class="room-user">
-              <span>Created by: John Doe</span>
-            </div>
-          </div>
-				  <a href="#" class="room-join-link">Join</a>
-        </li>
-      </ul>
+      <% if @user.rooms.present?%>
+        <% @user.rooms.each do |room|%>
+          <ul class="room-list">
+            <li class="room-item">
+              <div class="room-info">
+                <h3 class="room-name"><%=room.name%></h3>
+                <div class="room-meta">
+                  <span class="room-created"><%=l room.created_at%></span>
+                  <span class="room-level">Level <%=room.level.name%></span>
+                </div>
+                <div class="room-habit">
+                  <span>達成したい習慣: <%=room.habit%></span>
+                </div>
+                <div class="room-user">
+                  <span>作成者: <%= room.creator.nickname %></span>
+                </div>
+              </div>
+				      <div class="room-buttons">
+                <%=link_to "詳細", room_path(room.id), class: "room-show-link" %>
+              </div>
+            </li>
+          </ul>
+        <% end %>
+      <% else %>
+        <span>まだルームはありません</span>
+      <% end %>
     </div>
   </div>
 </body>
