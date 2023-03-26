@@ -25,12 +25,12 @@
     </span>
     <% if notification.action == 'request'%>
       <span>
-        <%=link_to "ユーザーを見る", user_path(visitor), class: "notification-user-show" %>
+        <%=link_to "ユーザーを見る", user_path(visitor, room_id: notification.room.id, visitor_id: visitor.id), class: "notification-user-show" %>
       </span>
     <% end %>
     <% if notification.action == 'permission'%>
       <span>
-        <%=link_to "ルームを見る", room_path(notification.room.id), class: "notification-room-show" %>
+        <%=link_to "ルームを見る", room_path(notification.room_id, user_id: visited.id), class: "notification-room-show" %>
       </span>
     <% end %>
     <% if notification.checked == false%>

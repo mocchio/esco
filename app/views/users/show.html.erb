@@ -17,11 +17,13 @@
     <div class="user-introduction">
       <%= @user.introduction %>
     </div>
-    <% if (@user.requests.present?) && (@user != current_user) %>
+    <% if (@user == @visitor) && (!@room.users.include?(@visitor)) %>
       <div class="room-permission-btns">
-        <% @user.requests.each do |request|%>
-          <%= link_to '追加する', room_permissions_path(request.room_id, request_id: request.id), class: 'room-permission-btn', method: :post %> 
-          <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
+        <% @visitor.requests.each do |request| %>
+          <% if request.room == @room %>
+            <%= link_to '追加する', room_permissions_path(request.room_id, request_id: request.id), class: 'room-permission-btn', method: :post %> 
+            <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
+          <% end %>
         <% end %>
       </div>
     <% end %>
