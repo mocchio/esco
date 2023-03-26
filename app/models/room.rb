@@ -47,4 +47,17 @@ class Room < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  def create_notification_permission(current_user, request)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, request.user_id, id, 'permission'])
+
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        visited_id: request.user_id,
+        action: 'permission'
+      )
+      notification.save if notification.valid?
+    end
+  end
 end

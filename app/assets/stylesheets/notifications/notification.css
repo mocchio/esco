@@ -51,3 +51,16 @@
 .notification-user-show:hover {
   color: #f78733;
 }
+
+.notification-room-show {
+  color: red;
+  text-decoration: none;
+  border: 1px solid red;
+  padding: 5px;
+  font-size: 15px;
+  margin-left: 120px;
+}
+
+.notification-user-show:hover {
+  color: red;
+}

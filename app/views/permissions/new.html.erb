@@ -8,27 +8,20 @@
         <%= image_tag "human.jpg" %>
       </div>
       <div class="user-name">
-        <h1><%= @user.nickname %></h1>
-        <% if @user.id == current_user.id %> 
-          <%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'edit-profile-button' %>
-        <% end %> 
+        <h1><%= @notification.visitor_id.nickname %></h1>
       </div>
     </div>
     <div class="user-introduction">
-      <%= @user.introduction %>
+      <%= @notification.visitor.introduction %>
     </div>
-    <% if (@user.requests.present?) && (@user != current_user) %>
-      <div class="room-permission-btns">
-        <% @user.requests.each do |request|%>
-          <%= link_to '追加する', room_permissions_path(request.room_id, request_id: request.id), class: 'room-permission-btn', method: :post %> 
-          <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
-        <% end %>
-      </div>
-    <% end %>
+    <div class="room-permission-btns">
+      <%= link_to '追加する', notification_permissions_path(@notification.id), class: 'room-permission-btn' %> 
+      <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
+    </div>
     <hr>
     <div class="room-list-container">
-      <% if @user.rooms.present?%>
-        <% @user.rooms.each do |room|%>
+      <% if @notification.visitor.rooms.present?%>
+        <% @notification.visitor.rooms.each do |room|%>
           <ul class="room-list">
             <li class="room-item">
               <div class="room-info">
