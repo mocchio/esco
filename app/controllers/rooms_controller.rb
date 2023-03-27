@@ -1,6 +1,6 @@
 class RoomsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
-  before_action :set_room, only: [:show, :edit, :update, :destroy]
+  before_action :set_room, only: [:show, :edit, :update, :destroy, :move]
 
   def index
     @rooms = Room.includes(:users, :creator).order("created_at DESC")
@@ -42,12 +42,12 @@ class RoomsController < ApplicationController
   end
 
   def move
-    room = Room.find(params[:id])
-    if room.users.include?(current_user)
-      redirect_to room_chats_path(room)
+    if @room.users.include?(current_user)
+      redirect_to room_chats_path(@room)
     else
-      room.users << current_user
-      redirect_to room_chats_path(room), notice: 'ルームに入室しました！'
+      @room.users << current_user
+      @room.create_notification_join(current_user)
+      redirect_to room_chats_path(@room)
     end
   end
 

@@ -5,7 +5,7 @@
   <% if user_signed_in?%>
     <% if current_user == @user && !@room.users.include?(current_user) %>
       <div class="room-permission">🎉入室が許可されました！🎉</div>
-    <% elsif @room.users.include?(current_user) %>
+    <% elsif @room.users.include?(current_user) && (current_user != @room.creator) %>
       <div class="room-permission">入室済みです！</div>
     <% end %>
   <% end %>
@@ -17,6 +17,14 @@
       <tr>
         <th class="detail-room">ホスト</th>
         <td class="detail-value"><%= @room.creator.nickname %></td>
+      </tr>
+      <tr>
+        <th class="detail-room">メンバー</th>
+        <td class="detail-value">
+          <% @room.users.where.not(id: @room.creator_id).to_a.each do |user| %>
+            <%= user.nickname %>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th class="detail-room">ルームレベル</th>
@@ -38,6 +46,8 @@
       <%= link_to '編集', edit_room_path(@room), class: 'room-edit-btn' %>
       <%= link_to '削除', room_path(@room), class: 'room-destroy-btn', method: :delete %>
     </div>
+    <% elsif (current_user.requests.exists?(room_id: @room.id)) && (!@room.creator.permissions.exists?(room_id: @room.id)) %>
+      <span>入室申請済みです</span>
     <% elsif (!@room.users.include?(current_user)) && (current_user != @user) %>
       <%= link_to '入室申請する', room_requests_path(@room), method: :post, class: 'room-join-btn' %>
     <% elsif current_user == @user%>

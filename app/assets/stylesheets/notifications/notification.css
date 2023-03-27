@@ -45,7 +45,7 @@
   border: 1px solid #f78733;
   padding: 5px;
   font-size: 15px;
-  margin-left: 120px;
+  margin-left: 160px;
 }
 
 .notification-user-show:hover {
@@ -63,4 +63,17 @@
 
 .notification-room-show:hover {
   color: red;
+}
+
+.notification-user-join {
+  color: #00CC66;
+  text-decoration: none;
+  border: 1px solid #00CC66;
+  padding: 5px;
+  font-size: 15px;
+  margin-left: 210px;
+}
+
+.notification-user-join:hover {
+  color: #00CC66;
 }

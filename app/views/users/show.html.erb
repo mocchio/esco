@@ -26,15 +26,17 @@
           <% end %>
         <% end %>
       </div>
-    <% elsif @room.present? && !@room.users.include?(@visitor) %>
-      <div class="room-permission-message1"><%=@room.name%>への入室許可済みです！</div>
-    <% elsif @room.users.include?(@visitor) %>
-      <div class="room-permission-message2"><%=@room.name%>へ参加済みです！</div>
+    <% elsif @room.present? %>
+      <% if @room.users.include?(@visitor) %>
+        <div class="room-permission-message1"><%=@room.name%>へ参加済みです</div>
+      <% else %>
+        <div class="room-permission-message2"><%=@room.name%>への入室許可済みです</div>
+      <% end %>
     <% end %>
     <hr>
     <div class="room-list-container">
       <% if @user.rooms.present?%>
-        <% @user.rooms.each do |room|%>
+        <% @user.rooms.order("created_at DESC").each do |room|%>
           <ul class="room-list">
             <li class="room-item">
               <div class="room-info">

@@ -60,4 +60,17 @@ class Room < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  def create_notification_join(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, creator_id, id, 'join'])
+
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        visited_id: creator_id,
+        action: 'join'
+      )
+      notification.save if notification.valid?
+    end
+  end
 end
