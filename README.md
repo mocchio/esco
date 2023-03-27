@@ -20,6 +20,9 @@
 - has_many :chats
 - has_many :active_notifications, class_name: 'Notification', foreign_key: 'visitor_id', dependent: :destroy
 - has_many :passive_notifications, class_name: 'Notification', foreign_key: 'visited_id', dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :requests, dependent: :destroy
+- has_many :permissions, dependent: :destroy
 
 
 ## roomsテーブル
@@ -38,6 +41,9 @@
 - has_many :chats, dependent: :destroy
 - belongs_to :creator, class_name: "User"
 - has_many :notifications, dependent: :destroy
+- has_many :likes, dependent: :destroy
+- has_many :requests, dependent: :destroy
+- has_many :permissions, dependent: :destroy
 
 
 ## room_usersテーブル
@@ -87,13 +93,24 @@
 | checked      | boolean | default: false, null: false |
 
 ### Association
-- belongs_to :post, optional: true
-- belongs_to :comment, optional: true
+- belongs_to :room, optional: true
 - belongs_to :visitor, class_name: 'User', foreign_key: 'visitor_id', optional: true
 - belongs_to :visited, class_name: 'User', foreign_key: 'visited_id', optional: true
 
 
 ## requestsテーブル
+
+| Column   | Type       | Option                          |
+| -------- | ---------- | ------------------------------- |
+| user     | references | null: false, foreign_key: true  |
+| room     | references | null: false, foreign_key: true  |
+
+### Association
+- belongs_to :user
+- belongs_to :room
+
+
+## permissionsテーブル
 
 | Column   | Type       | Option                          |
 | -------- | ---------- | ------------------------------- |

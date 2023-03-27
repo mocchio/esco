@@ -12,6 +12,7 @@ class Room < ApplicationRecord
   belongs_to :creator, class_name: "User"
   has_many :notifications, dependent: :destroy
   has_many :requests, dependent: :destroy
+  has_many :permissions, dependent: :destroy
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
@@ -43,10 +44,32 @@ class Room < ApplicationRecord
         visited_id: creator_id,
         action: 'request'
       )
+      notification.save if notification.valid?
+    end
+  end
 
-      # if notification.visitor_id == notification.visited_id
-      #   notification.checked = true
-      # end
+  def create_notification_permission(current_user, request)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, request.user_id, id, 'permission'])
+
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        visited_id: request.user_id,
+        action: 'permission'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
+  def create_notification_join(current_user)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, creator_id, id, 'join'])
+
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        visited_id: creator_id,
+        action: 'join'
+      )
       notification.save if notification.valid?
     end
   end

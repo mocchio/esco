@@ -2,11 +2,17 @@
   background-color: #FFF;
   width: 70vw;
   min-width: 1200px;
-  padding: 10vh 15vw;
+  padding: 5vh 15vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
+}
+
+.room-permission {
+  font-size: 40px;
+  margin-bottom: 30px;
+  color: #696969;
 }
 
 .room-explain-box {
@@ -92,4 +98,21 @@
 
 .room-destroy-btn:hover {
   color: #fff;
+}
+
+.room-move-btn {
+  background-color: #93FFAB;
+  color: black;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  width: 30%;
+  margin-top: 20px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.room-move-btn:hover {
+  color: black;
 }

@@ -31,7 +31,7 @@
             </div>
             <div class="room-user">
               <% if room.creator %>
-              <span>作成者: <%= room.creator.nickname %></span>
+              <span>作成者: <%=link_to room.creator.nickname, user_path(room.creator.id), class: "room-creator" %></span>
               <% end %>
             </div>
             <div id="like-btn<%= room.id %>">

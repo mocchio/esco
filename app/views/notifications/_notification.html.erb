@@ -18,11 +18,27 @@
         <% when 'request' then %>
           <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
           <%= "への入室申請をしました" %>
+        <% when 'permission' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "への入室を許可しました" %>
+        <% when 'join' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "へ参加しました" %>
       <% end %>
     </span>
     <% if notification.action == 'request'%>
       <span>
-        <%=link_to "詳細を見る", user_path(visitor), class: "notification-user-show" %>
+        <%=link_to "ユーザーを見る", user_path(visitor, room_id: notification.room.id, visitor_id: visitor.id), class: "notification-user-show" %>
+      </span>
+    <% end %>
+    <% if notification.action == 'permission'%>
+      <span>
+        <%=link_to "ルームを見る", room_path(notification.room_id, user_id: visited.id), class: "notification-room-show" %>
+      </span>
+    <% end %>
+    <% if notification.action == 'join'%>
+      <span>
+        <%=link_to "ルームへ移動する", room_chats_path(notification.room.id), class: "notification-user-join" %>
       </span>
     <% end %>
     <% if notification.checked == false%>
