@@ -26,26 +26,20 @@
           <%= "へ参加しました" %>
       <% end %>
     </span>
-    <% if notification.action == 'request'%>
-      <span>
+    <span>
+      <% if notification.action == 'request'%>
         <%=link_to "ユーザーを見る", user_path(visitor, room_id: notification.room.id, visitor_id: visitor.id), class: "notification-user-show" %>
-      </span>
-    <% end %>
-    <% if notification.action == 'permission'%>
-      <span>
+      <% end %>
+      <% if notification.action == 'permission'%>
         <%=link_to "ルームを見る", room_path(notification.room_id, user_id: visited.id), class: "notification-room-show" %>
-      </span>
-    <% end %>
-    <% if notification.action == 'join'%>
-      <span>
+      <% end %>
+      <% if notification.action == 'join'%>
         <%=link_to "ルームへ移動する", room_chats_path(notification.room.id), class: "notification-user-join" %>
-      </span>
-    <% end %>
-    <% if notification.checked == false%>
-      <span>
+      <% end %>
+      <% if notification.checked == false%>
         <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>
-      </span>
-    <% end %>
+      <% end %>
+    </span>
   </div>
   <%# <div class="small text-muted text-right">
     <%= time_ago_in_words(notification.created_at).upcase %>

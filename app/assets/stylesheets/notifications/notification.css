@@ -9,12 +9,9 @@
   margin-bottom: 20px;
 }
 
-.notification-user {
-  color: #1e8b61;
-}
-
-.notification-room {
-  color: #1e8b61;
+.not-notifications {
+  text-align: center;
+  font-size: 18px;
 }
 
 .form-inline {
@@ -22,9 +19,12 @@
   justify-content: space-between;
 }
 
-.not-notifications {
-  text-align: center;
-  font-size: 18px;
+.notification-user {
+  color: #1e8b61;
+}
+
+.notification-room {
+  color: #1e8b61;
 }
 
 .notification-update {
@@ -39,13 +39,17 @@
   color: #5673AD;
 }
 
+.notification-actions {
+  text-align: right;
+  margin-top: 10px;
+}
+
 .notification-user-show {
   color: #f78733;
   text-decoration: none;
   border: 1px solid #f78733;
   padding: 5px;
   font-size: 15px;
-  margin-left: 160px;
 }
 
 .notification-user-show:hover {
@@ -58,7 +62,6 @@
   border: 1px solid red;
   padding: 5px;
   font-size: 15px;
-  margin-left: 120px;
 }
 
 .notification-room-show:hover {
@@ -71,7 +74,6 @@
   border: 1px solid #00CC66;
   padding: 5px;
   font-size: 15px;
-  margin-left: 210px;
 }
 
 .notification-user-join:hover {
