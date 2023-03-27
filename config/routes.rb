@@ -6,6 +6,9 @@ Rails.application.routes.draw do
     member do
       get 'move'
     end
+    collection do
+      get 'search'
+    end
     resources :chats, only: [:index, :create]
     resources :likes, only: [:create, :destroy]
     resources :requests, only: :create

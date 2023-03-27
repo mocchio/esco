@@ -56,6 +56,8 @@
   position: fixed;
   margin-top: 70px;
   margin-left: 250px;
+  height: 90px;
+  overflow: scroll; 
 }
 
 .pull-down-lists {
@@ -72,10 +74,6 @@
   text-decoration: none;
   color: #696969;
 }
-
-/* .pull-down-list:hover {
-  color: white;
-} */
 
 .nav a:hover {
   color: black;

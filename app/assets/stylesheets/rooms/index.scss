@@ -35,6 +35,18 @@
 .room-list-header {
   margin-bottom: 10px;
   text-align: center;
+  position: relative;
+}
+
+.search-box {
+  position: absolute !important;
+  left: 50% !important;
+  transform: translate(-50%) !important;
+  width: 60% !important;
+}
+
+.room-contents {
+  margin-top: 50px;
 }
 
 .room-list {

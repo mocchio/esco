@@ -51,6 +51,10 @@ class RoomsController < ApplicationController
     end
   end
 
+  def search
+    @rooms = Room.search(params[:keyword])
+  end
+
   private
   def room_params
     params.require(:room).permit(:name, :level_id, :habit, :rule, user_ids: [])

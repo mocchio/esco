@@ -46,12 +46,12 @@
       <%= link_to '編集', edit_room_path(@room), class: 'room-edit-btn' %>
       <%= link_to '削除', room_path(@room), class: 'room-destroy-btn', method: :delete %>
     </div>
-    <% elsif (current_user.requests.exists?(room_id: @room.id)) && (!@room.creator.permissions.exists?(room_id: @room.id)) %>
+    <% elsif current_user == @user%>
+      <%= link_to 'ルームへ移動する', move_room_path(@room), class: 'room-move-btn' %>
+    <% elsif (current_user.requests.exists?(room_id: @room.id)) %>
       <span>入室申請済みです</span>
     <% elsif (!@room.users.include?(current_user)) && (current_user != @user) %>
       <%= link_to '入室申請する', room_requests_path(@room), method: :post, class: 'room-join-btn' %>
-    <% elsif current_user == @user%>
-      <%= link_to 'ルームへ移動する', move_room_path(@room), class: 'room-move-btn' %>
     <% end %>
   <% end %>
 </div>

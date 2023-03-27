@@ -73,4 +73,12 @@ class Room < ApplicationRecord
       notification.save if notification.valid?
     end
   end
+
+  def self.search(search)
+    if search != ""
+      Room.where('name LIKE ?', "%#{search}%").order(id: :desc)
+    else
+      Room.all.order(created_at: :desc)
+    end
+  end
 end

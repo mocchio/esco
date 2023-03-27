@@ -17,21 +17,19 @@
     <div class="user-introduction">
       <%= @user.introduction %>
     </div>
-    <% if (@user == @visitor) && (!current_user.permissions.exists?(room_id: @room.id)) %>
+    <% if !@room.users.include?(@visitor) %>
       <div class="room-permission-btns">
         <% @visitor.requests.each do |request| %>
-          <% if request.room == @room %>
+          <% if request.room_id == @room.id && !@room.permissions.exists?(request_id: request.id)%>
             <%= link_to '追加する', room_permissions_path(request.room_id, request_id: request.id), class: 'room-permission-btn', method: :post %> 
             <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
+          <% elsif request.room_id == @room.id && @room.permissions.exists?(request_id: request.id) %>
+            <div class="room-permission-message2"><%=@room.name%>への入室許可済みです</div>
           <% end %>
         <% end %>
       </div>
-    <% elsif @room.present? %>
-      <% if @room.users.include?(@visitor) %>
-        <div class="room-permission-message1"><%=@room.name%>へ参加済みです</div>
-      <% else %>
-        <div class="room-permission-message2"><%=@room.name%>への入室許可済みです</div>
-      <% end %>
+    <% else %>
+      <div class="room-permission-message1"><%=@room.name%>へ参加済みです</div>
     <% end %>
     <hr>
     <div class="room-list-container">
