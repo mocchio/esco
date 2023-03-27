@@ -76,7 +76,7 @@ class Room < ApplicationRecord
 
   def self.search(search)
     if search != ""
-      Room.where('name LIKE ?', "%#{search}%").order(id: :desc)
+      Room.where('name LIKE ?', "%#{search}%").order(created_at: :desc)
     else
       Room.all.order(created_at: :desc)
     end
