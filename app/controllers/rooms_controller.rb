@@ -41,6 +41,16 @@ class RoomsController < ApplicationController
     redirect_to root_path
   end
 
+  def move
+    room = Room.find(params[:id])
+    if room.users.include?(current_user)
+      redirect_to room_chats_path(room)
+    else
+      room.users << current_user
+      redirect_to room_chats_path(room), notice: 'ルームに入室しました！'
+    end
+  end
+
   private
   def room_params
     params.require(:room).permit(:name, :level_id, :habit, :rule, user_ids: [])

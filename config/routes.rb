@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   root to: 'rooms#index'
   resources :users, only: [:show, :edit, :update]
   resources :rooms do
+    member do
+      get 'move'
+    end
     resources :chats, only: [:index, :create]
     resources :likes, only: [:create, :destroy]
     resources :requests, only: :create

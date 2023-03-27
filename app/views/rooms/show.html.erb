@@ -39,7 +39,7 @@
     <% elsif (!@room.users.include?(current_user)) && (current_user != @user) %>
       <%= link_to '入室申請する', room_requests_path(@room), method: :post, class: 'room-join-btn' %>
     <% elsif current_user == @user%>
-      <%= link_to 'ルームへ移動する', "#", class: 'room-move-btn' %>
+      <%= link_to 'ルームへ移動する', move_room_path(@room), class: 'room-move-btn' %>
     <% end %>
   <% end %>
 </div>
