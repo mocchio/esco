@@ -3,8 +3,10 @@
 
 <div class="room-box">
   <% if user_signed_in?%>
-    <% if current_user == @user %>
+    <% if current_user == @user && !@room.users.include?(current_user) %>
       <div class="room-permission">🎉入室が許可されました！🎉</div>
+    <% elsif @room.users.include?(current_user) %>
+      <div class="room-permission">入室済みです！</div>
     <% end %>
   <% end %>
   <div class="room-explain-box">
