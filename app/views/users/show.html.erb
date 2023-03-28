@@ -17,7 +17,7 @@
     <div class="user-introduction">
       <%= @user.introduction %>
     </div>
-    <% if !@room.users.include?(@visitor) %>
+    <% if @room.present? && !@room.users.include?(@visitor) %>
       <div class="room-permission-btns">
         <% @visitor.requests.each do |request| %>
           <% if request.room_id == @room.id && !@room.permissions.exists?(request_id: request.id)%>
@@ -29,7 +29,9 @@
         <% end %>
       </div>
     <% else %>
-      <div class="room-permission-message1"><%=@room.name%>へ参加済みです</div>
+      <% if @room.present?%>
+        <div class="room-permission-message1"><%=@room.name%>へ参加済みです</div>
+      <% end %>
     <% end %>
     <hr>
     <div class="room-list-container">

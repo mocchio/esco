@@ -46,7 +46,7 @@
       <%= link_to '編集', edit_room_path(@room), class: 'room-edit-btn' %>
       <%= link_to '削除', room_path(@room), class: 'room-destroy-btn', method: :delete %>
     </div>
-    <% elsif current_user == @user%>
+    <% elsif current_user == @user && @room.users.include?(current_user)%>
       <%= link_to 'ルームへ移動する', move_room_path(@room), class: 'room-move-btn' %>
     <% elsif (current_user.requests.exists?(room_id: @room.id)) %>
       <span>入室申請済みです</span>
