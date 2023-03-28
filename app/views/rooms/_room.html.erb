@@ -1,0 +1,25 @@
+<ul class="room-list">
+  <li class="room-item">
+    <div class="room-info">
+      <h3 class="room-name"><%=room.name%></h3>
+      <div class="room-meta">
+        <span class="room-created"><%=l room.created_at%></span>
+        <span class="room-level">Level <%=room.level.name%></span>
+      </div>
+      <div class="room-habit">
+        <span>達成したい習慣: <%=room.habit%></span>
+      </div>
+      <div class="room-user">
+        <% if room.creator %>
+          <span>作成者: <%=link_to room.creator.nickname, user_path(room.creator.id), class: "room-creator" %></span>
+        <% end %>
+      </div>
+      <div id="like-btn<%= room.id %>">
+        <%= render partial: 'likes/like', locals: { room: room }%>
+      </div>
+    </div>
+    <div class="room-buttons">
+      <%=link_to "詳細", room_path(room.id), class: "room-show-link" %>
+    </div>
+  </li>   
+</ul>
