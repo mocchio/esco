@@ -5,7 +5,11 @@
   <div class="user-show-container">
     <div class="user-profile">
       <div class="user-show-icon">
-        <%= image_tag "human.jpg" %>
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url %>
+        <% else %>
+          <%= image_tag ("human.jpg") %>
+        <% end %>
       </div>
       <div class="user-name">
         <h1><%= @user.nickname %></h1>
