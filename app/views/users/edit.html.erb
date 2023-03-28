@@ -1,23 +1,29 @@
 <%= render 'shared/header'%>
+<%= render 'shared/second-header'%>
 
 <body>
   <div class="user-edit-container">
     <div class="user-edit-info">
+      <%= form_with model: @user, local: true do |f| %>
       <div class="user-edit-icon">
-        <%= image_tag "human.jpg", alt: "human.jpg" %>
-        <%# <img src="/assets/images/user-icon.jpg" alt="アイコン画像"> %>
-      </div>
-      <div class="user-details">
-        <%= form_with model: current_user, local: true do |f| %>
-          <%= f.label :nickname, value: "ニックネーム" %>
-          <%= f.text_field :nickname, id: "nickname" %>
-          <%= f.label :introduction, value: "自己紹介" %>
-          <%= f.text_area :introduction, id: "introduction" %>
-          <div class="update-button">
-            <%= f.submit "更新", class: "edit-button" %>
-          </div>
+        <% if @user.avatar? %>
+          <%= image_tag @user.avatar.url %>
+          <%= f.file_field :avatar, class: "edit-avatar"%>
+        <% else %>
+          <%= image_tag ("human.jpg") %>
+          <%= f.file_field :avatar, class: "edit-avatar"%>
         <% end %>
       </div>
+      <div class="user-details">
+        <%= f.label :nickname, value: "ニックネーム" %>
+        <%= f.text_field :nickname, id: "nickname" %>
+        <%= f.label :introduction, value: "自己紹介" %>
+        <%= f.text_area :introduction, id: "introduction" %>
+        <div class="update-button">
+          <%= f.submit "更新", class: "edit-button" %>
+        </div>
+      </div>
+      <% end %>
     </div>
   </div>
 </body>
