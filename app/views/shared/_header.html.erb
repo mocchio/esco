@@ -2,6 +2,13 @@
   <div class="container d-flex flex-wrap">
     <ul class="nav me-auto">
       <% if user_signed_in? %>
+      <li class="nav-item">
+        <% if current_user.avatar? %>
+          <%= image_tag current_user.avatar.url, class: "nav-link link-dark px-2 active current_user-icon" %>
+        <% else %>
+          <%= image_tag ("human.jpg"), class: "nav-link link-dark px-2 active current_user-icon" %>
+        <% end %>
+      </li>
       <li class="nav-item"><%= link_to current_user.nickname, user_path(current_user.id), class: "nav-link link-dark px-2 active", id: "header-menu1" %></li>
       <li class="nav-item"><%= link_to "Create Room", new_room_path, class: "nav-link link-dark px-2", id: "header-menu2" %></li>
       <li class="nav-item"><span class="nav-link link-dark px-2", id="header-menu3">My Rooms</span></li>
