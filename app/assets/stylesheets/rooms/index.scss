@@ -38,11 +38,15 @@
   position: relative;
 }
 
+.room-list-header h2 {
+  font-family: 'Playfair Display', serif;
+}
+
 .search-box {
   position: absolute !important;
   left: 50% !important;
   transform: translate(-50%) !important;
-  width: 60% !important;
+  width: 70% !important;
 }
 
 .room-contents {
@@ -64,7 +68,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 70%;
   margin: 0 auto;
 }
 

@@ -1,28 +1,19 @@
-<div class="chat">
-  <div class="chat-logo">
-    <%= image_tag "logo.jpg", class: "chat-logo-jpg"%>
-  </div>
-  <div class="chat-title">
-    <%= link_to "Esco", "/", class: "chat-title-string"%>
-  </div>
-</div>
+<%= render "shared/third-header"%>
+<%= render "shared/header"%>
 
 <div class="chat-part">
   <div class="side-bar">
     <div class="side-bar__top">
       <div class="user_name">
-        <%= link_to current_user.nickname, user_path(current_user.id) %>
-      </div>
-      <div class="chat-btn">
-        <%= link_to "Create Room", new_room_path %>
+        <div class="chat-room-index">ルーム一覧</div>
       </div>
     </div>
 
     <div class="side-bar__middle">
       <% current_user.rooms.each do |room| %>
         <div class="side-bar-room">
-          <div class="room_name">
-            <%= link_to room.name, "#" %>
+          <div class="room_name" data-room-id="<%= room.id %>">
+            <%= link_to room.name, room_chats_path(room.id) %>
           </div>
         </div>
       <% end %>
@@ -32,7 +23,7 @@
 
   <div class="chat-main">
     <div class="chat-header">
-      <h2><%=@room.name%></h2>
+      <h2 id="header-room-name"><%=@room.name%></h2>
       <% if current_user == @room.creator %>
         <div class="chat-retire-btn">
           <%= link_to "削除する", room_path(@room), method: :delete %>
@@ -64,7 +55,11 @@
           <div class="message received">
             <% if chat.message.present? %>
               <div class="user-icon">
-                <%=image_tag "human.jpg", alt:"User 1"%>
+                <% if chat.user.avatar? %>
+                  <%= image_tag chat.user.avatar.url %>
+                <% else %>
+                  <%= image_tag ("human.jpg") %>
+                <% end %>
                 <div class="message-user-name">
                   <p><%=chat.user.nickname%></p>
                 </div>
