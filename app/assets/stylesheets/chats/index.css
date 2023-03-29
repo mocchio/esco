@@ -1,21 +1,14 @@
 .chat {
-  height: 80px;
-  padding-left: 40px;
+  height: 60px;
+  padding-left: 20px;
   display: flex;
-  justify-content: center;
-}
-
-.chat-logo {
-  padding-top: 20px;
+  justify-content: left;
+  align-items: center;
 }
 
 .chat-logo-jpg {
   width: 40px;
   height: 40px;
-}
-
-.chat-title {
-  padding-top: 23px;
 }
 
 .chat-title-string {
@@ -46,9 +39,9 @@
 
 .side-bar__top {
   height: 100px;
-  padding: 0 20px;
+  padding: 0 40px;
   display: flex;
-  justify-content: space-between;
+  justify-content: left;
   align-items: center;
   background-color: #808080;
 }
@@ -60,6 +53,11 @@
 }
 
 .user_name a:hover {
+  color: #fafafa;
+}
+
+.chat-room-index {
+  font-size: 16px;
   color: #fafafa;
 }
 
@@ -175,6 +173,10 @@
   border-radius: 0 10px 10px 10px;
   border: 1px solid #ccc;
   height: 50%;
+} 
+
+.message.received {
+  margin-bottom: 10px !important;
 }
 
 .message.sent {
