@@ -50,10 +50,11 @@ https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_u
 習慣継続状況を可視化できるカレンダー機能
 
 # データベース設計
-/Users/s.takumi/projects/esco/esco.png
+![esco](https://user-images.githubusercontent.com/124575646/228516822-153a052c-49ab-4e5c-8ffa-77decd6a8d0d.png)
 
 # 画面遷移図
-/Users/s.takumi/projects/esco/esco_screen_transition.png
+![esco_screen_transition](https://user-images.githubusercontent.com/124575646/228516567-9237835a-a974-44af-a680-d1c0cfcbacbe.png)
+
 
 # 開発環境
 - フロントエンド
