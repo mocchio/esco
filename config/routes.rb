@@ -15,4 +15,5 @@ Rails.application.routes.draw do
     resources :permissions, only: [:new, :create]
   end
   resources :notifications, only: [:index, :update]
+  resources :events, only: [:index, :create]
 end
