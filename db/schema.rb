@@ -44,11 +44,14 @@ ActiveRecord::Schema.define(version: 2023_03_30_041049) do
   end
 
   create_table "events", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
     t.text "content"
     t.datetime "start_time"
+    t.bigint "room_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["room_id"], name: "index_events_on_room_id"
+    t.index ["user_id"], name: "index_events_on_user_id"
   end
 
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

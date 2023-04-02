@@ -2,12 +2,13 @@ class EventsController < ApplicationController
   before_action :set_beginning_of_week
 
   def index
-    @events = Event.all
+    @events = current_user.events
     @event = Event.new
+    @rooms = current_user.rooms
   end
 
   def create
-    @event = Event.new(event_parameter)
+    @event = Event.new(event_params)
     if @event.save
       redirect_to events_path
     else
@@ -16,8 +17,8 @@ class EventsController < ApplicationController
   end
 
   private
-  def event_parameter
-    params.require(:event).permit(:title, :content, :start_time)
+  def event_params
+    params.require(:event).permit(:content, :start_time, :room_id).merge(user_id: current_user.id)
   end
 
   def set_beginning_of_week
