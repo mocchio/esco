@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   def index
     @events = current_user.events
     @event = Event.new
-    @rooms = current_user.rooms
+    @rooms = current_user.rooms.includes(:events)
   end
 
   def create
