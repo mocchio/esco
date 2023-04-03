@@ -1,7 +1,7 @@
 ja:
   time:
     formats:
-      default: "%Y/%m/%d %H:%M"
+      default: "%Y/%m/%d"
   activerecord:
     attributes:
       user:
@@ -12,3 +12,6 @@ ja:
         first_name_kana: 名前（カナ）
         birthday: 生年月日
         introduction: 自己紹介
+  simple_calendar:
+    previous: "<<　"
+    next: "　>>"

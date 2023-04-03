@@ -1,0 +1,82 @@
+<%= render "shared/third-header"%>
+<%= render "shared/header"%>
+
+<div class="calendar-index">
+  <div class="calendar-form">
+    <div class="calendar-bottom">
+      <% @rooms.each do |room| %>
+        <div class="form-container">
+          <h3>
+            <%= room.name %>
+          </h3>
+          <div class="form-row">
+            <div class="form-col calendar-time">
+              継続率：
+              <%# カレンダーに記録している日数 %>
+              <% recorded_days = room.events.where("user_id = ? AND start_time >= ?", current_user.id, room.created_at.to_date).count %>
+              <%# ルーム入室期間 %>
+              <% total_days = (Date.today - room.created_at.to_date + 1).to_i %>
+              <%# 継続率を計算し、パーセンテージで表示 %>
+              <%= number_to_percentage(recorded_days.to_f / total_days * 100, precision: 0) %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              ルーム入室日：
+              <%=l room.created_at%>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              入室期間：
+              <%= total_days %>日
+            </div>
+          </div>
+        </div>
+      <% end %>
+      <%= form_with(model: @event, local: true) do |form| %>
+        <div class="form-container">
+          <h3>記録</h3>
+          <div class="form-row">
+            <div class="form-col calendar-time">
+              <%= form.label :start_time do%>
+                <%= form.date_select :start_time %>
+              <% end %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <%= form.label :room_id %>
+              <%= form.collection_select :room_id, @rooms, :id, :name %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <%= form.label :content %>
+              <%= form.text_field :content %>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-col">
+              <%= form.submit %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="calendar-wrapper">
+    <%= month_calendar events: @events do |date, events| %>
+      <%= date.day %>
+
+      <% events.each do |event| %>
+        <div>
+          <%= event.room.name %>
+        </div>
+        <div>
+          <%= event.content %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

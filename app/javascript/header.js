@@ -2,6 +2,7 @@ window.addEventListener('load', function(){
   const headerMenu1 = document.getElementById("header-menu1");
   const headerMenu2 = document.getElementById("header-menu2");
   const headerMenu3 = document.getElementById("header-menu3");
+  const headerMenu4 = document.getElementById("header-menu4");
   const pullDownMenu = document.getElementById("menu3-pull-down");
   const userName = document.getElementById("user-name");
   const logOut = document.getElementById("log-out-btn");
@@ -21,6 +22,14 @@ window.addEventListener('load', function(){
   });
 
   headerMenu2.addEventListener('mouseout', function(){
+    this.style.textDecoration = 'none';
+  });
+
+  headerMenu4.addEventListener('mouseover', function(){
+    this.style.textDecoration = 'underline';
+  });
+
+  headerMenu4.addEventListener('mouseout', function(){
     this.style.textDecoration = 'none';
   });
 
