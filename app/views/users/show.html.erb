@@ -14,7 +14,7 @@
       </div>
       <div class="user-name">
         <h1><%= @user.nickname %></h1>
-        <% if @user.id == current_user.id %> 
+        <% if @user == current_user %> 
           <%= link_to 'プロフィールを編集', edit_user_path(@user), class: 'edit-profile-button' %>
         <% end %> 
       </div>
