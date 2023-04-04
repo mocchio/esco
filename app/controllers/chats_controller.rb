@@ -1,8 +1,11 @@
 class ChatsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @chat = Chat.new
     @room = Room.find(params[:room_id])
     @chats = @room.chats.includes(:user)
+    select_chat_user
   end
 
   def create
@@ -19,5 +22,11 @@ class ChatsController < ApplicationController
   private
   def chat_params
     params.require(:chat).permit(:message, :image).merge(user_id: current_user.id)
+  end
+
+  def select_chat_user
+    unless @room.users.include?(current_user)
+      redirect_to root_path
+    end
   end
 end

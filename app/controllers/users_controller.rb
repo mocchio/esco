@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, except: :show
   before_action :set_user
+  before_action :select_user, only: :edit
 
   def show
     if params[:room_id].present?
@@ -12,9 +13,6 @@ class UsersController < ApplicationController
   end
 
   def edit
-    if current_user != @user
-      redirect_to root_path
-    end
   end
 
   def update
@@ -32,5 +30,11 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def select_user
+    if current_user != @user
+      redirect_to root_path
+    end
   end
 end
