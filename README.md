@@ -1,11 +1,14 @@
 # アプリケーション名
 Esco
 
+
 # アプリケーション概要
 達成したい習慣が同じユーザー同士がチャットルームに集まり、お互いが監視役となり習慣化を達成する。
 
+
 # URL
 https://esco.onrender.com
+
 
 # テスト用アカウント
 - Basic認証ID : admin
@@ -14,6 +17,7 @@ https://esco.onrender.com
 - ルーム作成者パスワード : aaaaaa1
 - ルーム入室申請者メールアドレス : umi@umi.com
 - ルーム入室申請者パスワード : aaaaaa1
+
 
 # 利用方法
 
@@ -35,25 +39,31 @@ https://esco.onrender.com
 ## 移動したチャットルームにてコミュニケーションをとる
 1. 作成者が中心となりお互いが監視役となりながら習慣化を達成する。
 
+
 # アプリケーションを作成した背景
 学生時代の友人に課題をヒアリングし、社会人になってから早起きができないという問題を抱えていることが判明しました。<br>
 課題を分析した結果、早起きに限らず継続せざるを得ない環境に置かれていないことが真因であると仮説を立てました。<br>
 同様の課題を抱えている人も多いと推測し、真因を解決するために、同じ習慣を達成したい仲間同士でコミュニケーションをとることができるチャットアプリを開発することにしました。<br>
 
+
 # 洗い出した要件
 要件定義シート
 https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_uCEY/edit#gid=982722306
 
+
 # 実装した機能についての画像やGIFおよびその説明
+
 
 # 実装予定の機能
 習慣継続状況を可視化できるカレンダー機能
 
+
 # データベース設計
-![esco](https://user-images.githubusercontent.com/124575646/228516822-153a052c-49ab-4e5c-8ffa-77decd6a8d0d.png)
+![esco](https://user-images.githubusercontent.com/124575646/229692410-880539b0-8b95-4e5a-9a55-82ecbc9bf12c.png)
+
 
 # 画面遷移図
-![esco_screen_transition](https://user-images.githubusercontent.com/124575646/228516567-9237835a-a974-44af-a680-d1c0cfcbacbe.png)
+![esco_screen_transition](https://user-images.githubusercontent.com/124575646/229692271-21c7b04d-eae0-402a-95d9-16c1bbef7b46.png)
 
 
 # 開発環境
@@ -64,12 +74,14 @@ https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_u
 - テキストエディタ
 - タスク管理
 
+
 # ローカルでの動作方法
 以下のコマンドを順に実行<br>
 % git clone https://github.com/mocchio/esco.git<br>
 % cd esco<br>
 % bundle install<br>
 % yarn install<br>
+
 
 # 工夫したポイント
 ルームの作成者がルームに参加するメンバーを選べるように入室申請機能と入室許可機能を実装した点です。
