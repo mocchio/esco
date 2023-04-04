@@ -26,6 +26,9 @@ class RoomsController < ApplicationController
   end
 
   def edit
+    if current_user != @room.creator
+      redirect_to root_path
+    end
   end
 
   def update
