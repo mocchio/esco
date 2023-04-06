@@ -14,6 +14,7 @@ class Room < ApplicationRecord
   has_many :requests, dependent: :destroy
   has_many :permissions, dependent: :destroy
   has_many :events, dependent: :destroy
+  has_many :comments, dependent: :destroy
 
   def liked_by?(user)
     likes.where(user_id: user.id).exists?
