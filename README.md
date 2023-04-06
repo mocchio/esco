@@ -198,6 +198,7 @@ https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_u
 ### Association
 - belongs_to :user
 - belongs_to :room
+- has_one :permission, dependent: :destroy
 
 
 ## permissionsテーブル
@@ -206,6 +207,21 @@ https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_u
 | -------- | ---------- | ------------------------------- |
 | user     | references | null: false, foreign_key: true  |
 | room     | references | null: false, foreign_key: true  |
+| request  | references | null: false, foreign_key: true  |
+
+### Association
+- belongs_to :user
+- belongs_to :room
+- belongs_to :request
+
+
+## commentsテーブル
+
+| Column   | Type       | Option                          |
+| -------- | ---------- | ------------------------------- |
+| user     | references | null: false, foreign_key: true  |
+| room     | references | null: false, foreign_key: true  |
+| text     | test       | null: false                     |
 
 ### Association
 - belongs_to :user
