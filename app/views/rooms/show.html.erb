@@ -54,4 +54,17 @@
       <%= link_to '入室申請する', room_requests_path(@room), method: :post, class: 'room-join-btn' %>
     <% end %>
   <% end %>
+  <br>
+  <% if @room.creator != current_user && user_signed_in? %>
+    <%= form_with(model: [@room, @comment], local: true) do |f| %>
+      <h4>コメント</h4>
+      <div class="comment-form-container">
+        <%= f.text_field :text, class: 'comment-form-message' %>
+        <div class="comment-form-submit">
+          <i class="fa-sharp fa-solid fa-paper-plane"></i>
+          <%= f.submit value: "", class: 'hidden' %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
