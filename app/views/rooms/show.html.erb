@@ -56,15 +56,30 @@
   <% end %>
   <br>
   <% if @room.creator != current_user && user_signed_in? %>
-    <%= form_with(model: [@room, @comment], local: true) do |f| %>
+    <%= form_with(model: [@room, @comment], local: true) do |form| %>
       <h4>コメント</h4>
       <div class="comment-form-container">
-        <%= f.text_field :text, class: 'comment-form-message' %>
+        <%= form.text_area :text, class: 'comment-form-message', rows: 1 %>
         <div class="comment-form-submit">
+          <%= form.submit value: "", class: "comment-btn" %>
           <i class="fa-sharp fa-solid fa-paper-plane"></i>
-          <%= f.submit value: "", class: 'hidden' %>
         </div>
       </div>
     <% end %>
+  <% end %>
+  <% @comments.each do |comment| %>
+    <div class="comments">
+      <% if comment.user.avatar? %>
+        <%= image_tag comment.user.avatar.url, class: "comment-user-icon" %>
+      <% else %>
+        <%= image_tag ("human.jpg"), class: "comment-user-icon" %>
+      <% end %>
+      <div class="comment-user-info">
+        <%=link_to comment.user.nickname, user_path(comment.user.id), class: "comment-user-nickname" %><span>・<%=l comment.created_at %></span>
+        <div class="user-comment">
+          <%= comment.text %>
+        </div>
+      </div>
+    </div>
   <% end %>
 </div>

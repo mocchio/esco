@@ -130,6 +130,7 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-bottom: 30px;
 }
 
 .comment-form-message {
@@ -156,6 +157,30 @@
   margin: auto;
 }
 
-.hidden {
+.comment-btn {
   display: none;
+}
+
+.comments {
+  margin-bottom: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.comment-user-icon {
+  width: 45px;
+  height: 45px;
+  border-radius: 100px;
+  margin-right: 10px;
+
+}
+
+.comment-user-nickname {
+  text-decoration: none;
+  color: black;
+}
+
+.comment-user-nickname:hover {
+  color: black;
 }
