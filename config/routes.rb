@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     resources :likes, only: [:create, :destroy]
     resources :requests, only: :create
     resources :permissions, only: [:new, :create]
+    resources :comments, only: :create
   end
   resources :notifications, only: [:index, :update]
   resources :events, only: [:index, :create]
