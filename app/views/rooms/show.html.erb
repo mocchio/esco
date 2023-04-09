@@ -80,6 +80,9 @@
           <%= comment.text %>
         </div>
       </div>
+      <% if current_user == @room.creator %>
+        <%= link_to "返信", room_comment_reply_comments_path(@room, comment.id), class: "reply-comment-btn"%>
+      <% end %>
     </div>
   <% end %>
 </div>

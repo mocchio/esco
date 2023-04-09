@@ -98,7 +98,7 @@ ActiveRecord::Schema.define(version: 2023_04_09_062537) do
   end
 
   create_table "reply_comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "reply_comment", null: false
+    t.text "reply_text", null: false
     t.bigint "user_id", null: false
     t.bigint "room_id", null: false
     t.bigint "comment_id", null: false

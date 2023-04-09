@@ -1,0 +1,45 @@
+<%= render "shared/third-header" %>
+<%= render "shared/header" %>
+
+<div class="reply-main">
+  <div class="reply-comment-index">
+    <div class="reply-comment-title"><%=@room.name%> へのコメント</div>
+    <div class="comments">
+      <% if @comment.user.avatar? %>
+        <%= image_tag @comment.user.avatar.url, class: "comment-user-icon" %>
+      <% else %>
+        <%= image_tag ("human.jpg"), class: "comment-user-icon" %>
+      <% end %>
+      <div class="comment-user-info">
+        <%=link_to @comment.user.nickname, user_path(@comment.user.id), class: "comment-user-nickname" %><span>・<%=l @comment.created_at %></span>
+        <div class="user-comment">
+          <%= @comment.text %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= form_with(model: @reply_comment, url: room_comment_reply_comments_path(room_id: params[:room_id], comment_id: params[:comment_id]), local: true) do |form| %>
+    <div class="reply-comment-form-container">
+      <%= form.text_area :reply_text, class: 'comment-form-message', rows: 1, placeholder: "コメントへ返信する" %>
+      <div class="comment-form-submit">
+        <%= form.submit value: "", class: "comment-btn" %>
+        <i class="fa-sharp fa-solid fa-paper-plane"></i>
+      </div>
+    </div>
+  <% end %>
+  <% @reply_comments.each do |reply_comment| %>
+    <div class="reply-comments">
+      <% if reply_comment.user.avatar? %>
+        <%= image_tag reply_comment.user.avatar.url, class: "comment-user-icon" %>
+      <% else %>
+        <%= image_tag ("human.jpg"), class: "comment-user-icon" %>
+      <% end %>
+      <div class="comment-user-info">
+        <%=link_to reply_comment.user.nickname, user_path(reply_comment.user.id), class: "comment-user-nickname" %><span>・<%=l reply_comment.created_at %></span>
+        <div class="user-comment">
+          <%= reply_comment.reply_text %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

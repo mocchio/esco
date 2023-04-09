@@ -1,0 +1,55 @@
+.reply-main {
+  padding: 5vh 15vw;
+}
+
+.reply-comment-index {
+  margin: 0 auto;
+}
+
+.reply-comment-title {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 20px 0;
+}
+
+.reply-comment-form-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.comment-form-message {
+  flex-grow: 1;
+  margin-right: 10px;
+}
+
+.comment-form-submit {
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ccc;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 35px;
+}
+
+.comment-form-submit i {
+  color: #fff;
+  font-size: 15px;
+  display: block;
+  margin: auto;
+}
+
+.comment-btn {
+  display: none;
+}
+
+.reply-comments {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  overflow: scroll;
+}

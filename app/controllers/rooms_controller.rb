@@ -25,7 +25,7 @@ class RoomsController < ApplicationController
       @user = User.find(params[:user_id])
     end
     @comment = Comment.new
-    @comments = @room.comments.includes(:user)
+    @comments = @room.comments.includes(:user).order("created_at desc")
   end
 
   def edit
