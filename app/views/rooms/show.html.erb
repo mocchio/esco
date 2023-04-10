@@ -28,7 +28,16 @@
       </tr>
       <tr>
         <th class="detail-room">ルームレベル</th>
-        <td class="detail-value"><%= @room.level.name %></td>
+        <td class="detail-value">
+          <%= @room.level.name %>
+          <% if @room.level.name == "1" %>
+            <span><%= image_tag "ume.png" %></span>
+          <% elsif @room.level.name == "2" %>
+            <span><%= image_tag "take.png"%></span>
+          <% else %>
+            <span><%= image_tag "matsu.png" %></span>
+          <% end %>
+        </td>
       </tr>
       <tr>
         <th class="detail-room">達成したい習慣</th>
@@ -80,6 +89,9 @@
           <%= comment.text %>
         </div>
       </div>
+      <% if current_user == @room.creator %>
+        <%= link_to "返信", room_comment_reply_comments_path(@room, comment.id), class: "reply-comment-btn"%>
+      <% end %>
     </div>
   <% end %>
 </div>

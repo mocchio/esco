@@ -82,8 +82,26 @@
   margin-bottom: 5px;
 }
 
-.room-level {
-  background-color: #ccc;
+.room-level1 {
+  background-color: #90EE90;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 5px;
+  padding: 2px 5px;
+}
+
+.room-level2 {
+  background-color: #FFD700;
+  border-radius: 5px;
+  color: #fff;
+  display: inline-block;
+  margin-left: 5px;
+  padding: 2px 5px;
+}
+
+.room-level3 {
+  background-color: #DC143C;
   border-radius: 5px;
   color: #fff;
   display: inline-block;

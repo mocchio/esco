@@ -221,8 +221,23 @@ https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_u
 | -------- | ---------- | ------------------------------- |
 | user     | references | null: false, foreign_key: true  |
 | room     | references | null: false, foreign_key: true  |
-| text     | test       | null: false                     |
+| text     | text       | null: false                     |
 
 ### Association
 - belongs_to :user
 - belongs_to :room
+
+
+## reply_commentsテーブル
+
+| Column     | Type       | Option                          |
+| ---------- | ---------- | ------------------------------- |
+| user       | references | null: false, foreign_key: true  |
+| room       | references | null: false, foreign_key: true  |
+| comment    | references | null: false, foreign_key: true  |
+| reply_text | text       | null: false                     |
+
+### Association
+- belongs_to :user
+- belongs_to :room
+- belongs_to :comment

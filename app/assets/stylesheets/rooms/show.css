@@ -42,6 +42,12 @@
   font-size: 14px;
 }
 
+.detail-value img {
+  height: 20px;
+  width: 20px;
+  vertical-align: top;
+}
+
 .room-join-btn {
   background-color: #f00;
   color: #fff;
@@ -162,10 +168,11 @@
 }
 
 .comments {
-  margin-bottom: 20px;
+  margin: 20px 0;
   width: 100%;
   display: flex;
   align-items: center;
+  overflow: scroll;
 }
 
 .comment-user-icon {
@@ -183,4 +190,20 @@
 
 .comment-user-nickname:hover {
   color: black;
+}
+
+.reply-comment-btn {
+  width: 50px;
+  height: 35px;
+  background-color: #ccc;
+  border-radius: 10px 10px;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.reply-comment-btn:hover {
+  color: white;
 }
