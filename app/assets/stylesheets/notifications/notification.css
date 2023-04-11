@@ -19,6 +19,21 @@
   justify-content: space-between;
 }
 
+.notification-destroy {
+  text-decoration: none;
+  color: black;
+}
+
+.notification-destroy:hover {
+  color: black;
+}
+
+.trash-box {
+  margin-right: 4px;
+  height: 25px;
+  line-height: 25px !important;
+}
+
 .notification-user {
   color: #1e8b61;
 }

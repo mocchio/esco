@@ -6,9 +6,17 @@ class NotificationsController < ApplicationController
   end
 
   def update
-    notification = Notification.find(params[:id]) 
+    notification = Notification.find(params[:id])
     if notification.update(checked: true)
       @notifications = current_user.passive_notifications
+      redirect_to notifications_path
+    end
+  end
+
+  def destroy
+    binding.pry
+    notification = Notification.find(params[:id])
+    if notification.destroy
       redirect_to notifications_path
     end
   end

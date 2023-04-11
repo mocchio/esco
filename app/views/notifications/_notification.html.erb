@@ -4,6 +4,9 @@
 <div class="col-md-6 mx-auto">
   <div class="form-inline">
     <span>
+      <%= link_to notification_path(notification.id), method: :delete, class:"notification-destroy" do%>
+        <i class="fa-solid fa-trash trash-box"></i>
+      <% end %>
       <%= link_to user_path(visitor), class:"notification-user" do %>
         <% if visitor.avatar? %>
           <%= image_tag visitor.avatar.url, class: "notification-user-icon" %>
