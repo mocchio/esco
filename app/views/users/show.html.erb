@@ -27,7 +27,6 @@
         <% @visitor.requests.each do |request| %>
           <% if request.room_id == @room.id && !@room.permissions.exists?(request_id: request.id)%>
             <%= link_to '追加する', room_permissions_path(request.room_id, request_id: request.id), class: 'room-permission-btn', method: :post %> 
-            <%# <%= link_to '拒否する', "#", class: 'room-destroy-btn', method: :delete %> 
           <% elsif request.room_id == @room.id && @room.permissions.exists?(request_id: request.id) %>
             <div class="room-permission-message2"><%=@room.name%>への入室許可済みです</div>
           <% end %>
@@ -48,7 +47,13 @@
                 <h3 class="room-name"><%=room.name%></h3>
                 <div class="room-meta">
                   <span class="room-created"><%=l room.created_at%></span>
-                  <span class="room-level">Level <%=room.level.name%></span>
+                  <% if room.level.name == "1" %>
+                    <span class="room-level1">Level <%=room.level.name%></span>
+                  <% elsif room.level.name == "2" %>
+                    <span class="room-level2">Level <%=room.level.name%></span>
+                  <% else %>
+                    <span class="room-level3">Level <%=room.level.name%></span>
+                  <% end %>
                 </div>
                 <div class="room-habit">
                   <span>達成したい習慣: <%=room.habit%></span>
