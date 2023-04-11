@@ -17,6 +17,6 @@ Rails.application.routes.draw do
       resources :reply_comments, only: [:index, :create]
     end
   end
-  resources :notifications, only: [:index, :update]
+  resources :notifications, only: [:index, :update, :destroy]
   resources :events, only: [:index, :create]
 end

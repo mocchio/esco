@@ -23,6 +23,13 @@
   color: #1e8b61;
 }
 
+.notification-user-icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  margin-right: 10px;
+}
+
 .notification-room {
   color: #1e8b61;
 }
