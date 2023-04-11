@@ -31,6 +31,9 @@
         <% when 'join' then %>
           <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
           <%= "へ参加しました" %>
+        <% when 'comment' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "へコメントしました" %>
       <% end %>
     </span>
     <span>
@@ -42,6 +45,9 @@
       <% end %>
       <% if notification.action == 'join'%>
         <%=link_to "ルームへ移動する", room_chats_path(notification.room.id), class: "notification-user-join" %>
+      <% end %>
+      <% if notification.action == 'comment'%>
+        <%=link_to "コメントを見る", room_path(notification.room.id), class: "notification-comment-show" %>
       <% end %>
       <% if notification.checked == false%>
         <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>

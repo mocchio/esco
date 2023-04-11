@@ -101,3 +101,15 @@
 .notification-user-join:hover {
   color: #00CC66;
 }
+
+.notification-comment-show {
+  color: #DDA0DD;
+  text-decoration: none;
+  border: 1px solid #DDA0DD;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.notification-comment-show:hover {
+  color: #DDA0DD;
+}
