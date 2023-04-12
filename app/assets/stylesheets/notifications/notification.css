@@ -19,8 +19,30 @@
   justify-content: space-between;
 }
 
+.notification-destroy {
+  text-decoration: none;
+  color: black;
+}
+
+.notification-destroy:hover {
+  color: black;
+}
+
+.trash-box {
+  margin-right: 4px;
+  height: 25px;
+  line-height: 25px !important;
+}
+
 .notification-user {
   color: #1e8b61;
+}
+
+.notification-user-icon {
+  width: 25px;
+  height: 25px;
+  border-radius: 100px;
+  margin-right: 10px;
 }
 
 .notification-room {
@@ -78,4 +100,16 @@
 
 .notification-user-join:hover {
   color: #00CC66;
+}
+
+.notification-comment-show {
+  color: #DDA0DD;
+  text-decoration: none;
+  border: 1px solid #DDA0DD;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.notification-comment-show:hover {
+  color: #DDA0DD;
 }

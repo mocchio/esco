@@ -59,11 +59,11 @@ https://docs.google.com/spreadsheets/d/1x8Llr29yejllHW98x2KZi1BqKxN9yTHK6jusKL_u
 
 
 # データベース設計
-![esco](https://user-images.githubusercontent.com/124575646/229692410-880539b0-8b95-4e5a-9a55-82ecbc9bf12c.png)
+![esco](https://user-images.githubusercontent.com/124575646/231189723-a830d4b0-75c9-44a4-9e9d-9c6af5c39419.png)
 
 
 # 画面遷移図
-![esco_screen_transition](https://user-images.githubusercontent.com/124575646/229692271-21c7b04d-eae0-402a-95d9-16c1bbef7b46.png)
+![esco_screen_transition](https://user-images.githubusercontent.com/124575646/231189617-02fdb647-1936-4eab-861c-c2d57867d691.png)
 
 
 # 開発環境

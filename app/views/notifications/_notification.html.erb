@@ -4,8 +4,15 @@
 <div class="col-md-6 mx-auto">
   <div class="form-inline">
     <span>
+      <%= link_to notification_path(notification.id), method: :delete, class:"notification-destroy" do%>
+        <i class="fa-solid fa-trash trash-box"></i>
+      <% end %>
       <%= link_to user_path(visitor), class:"notification-user" do %>
-        <%# <%= image_tag avatar_url(visitor).to_s, class: "icon_mini" %>
+        <% if visitor.avatar? %>
+          <%= image_tag visitor.avatar.url, class: "notification-user-icon" %>
+        <% else %>
+          <%= image_tag ("human.jpg"), class: "notification-user-icon" %>
+        <% end %>
         <strong>
           <%= visitor.nickname %>
         </strong>
@@ -24,6 +31,9 @@
         <% when 'join' then %>
           <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
           <%= "へ参加しました" %>
+        <% when 'comment' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "へコメントしました" %>
       <% end %>
     </span>
     <span>
@@ -36,13 +46,13 @@
       <% if notification.action == 'join'%>
         <%=link_to "ルームへ移動する", room_chats_path(notification.room.id), class: "notification-user-join" %>
       <% end %>
+      <% if notification.action == 'comment'%>
+        <%=link_to "コメントを見る", room_path(notification.room.id), class: "notification-comment-show" %>
+      <% end %>
       <% if notification.checked == false%>
         <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>
       <% end %>
     </span>
   </div>
-  <%# <div class="small text-muted text-right">
-    <%= time_ago_in_words(notification.created_at).upcase %>
-  <%# </div> %>
   <hr>
 </div>
