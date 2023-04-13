@@ -90,6 +90,19 @@ class Room < ApplicationRecord
     end
   end
 
+  def create_notification_reply_comment(current_user, comment)
+    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, comment.user_id, id, 'reply_comment'])
+
+    if temp.blank?
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        visited_id: comment.user_id,
+        action: 'reply_comment'
+      )
+      notification.save if notification.valid?
+    end
+  end
+
   def self.search(search)
     if search != ""
       Room.where('name LIKE ?', "%#{search}%").order(created_at: :desc)

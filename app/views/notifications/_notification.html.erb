@@ -34,6 +34,9 @@
         <% when 'comment' then %>
           <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
           <%= "へコメントしました" %>
+        <% when 'reply_comment' then %>
+          <%= link_to notification.room.name, room_path(notification.room.id), style: "font-weight: bold;", class: "notification-room" %>
+          <%= "へのコメントに返信しました" %>
       <% end %>
     </span>
     <span>

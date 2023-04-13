@@ -8,6 +8,9 @@ class ReplyCommentsController < ApplicationController
 
   def create
     ReplyComment.create(reply_comment_params)
+    @room = Room.find(params[:room_id])
+    comment = Comment.find(params[:comment_id])
+    @room.create_notification_reply_comment(current_user, comment)
     redirect_to room_comment_reply_comments_path(room_id: params[:room_id], comment_id: params[:comment_id])
   end
 
