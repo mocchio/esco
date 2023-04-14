@@ -68,7 +68,7 @@
     <%= form_with(model: [@room, @comment], local: true) do |form| %>
       <h4>コメント</h4>
       <div class="comment-form-container">
-        <%= form.text_area :text, class: 'comment-form-message', rows: 1 %>
+        <%= form.text_area :text, class: 'comment-form-message', rows: 1, placeholder: "気になることを質問してみましょう！" %>
         <div class="comment-form-submit">
           <%= form.submit value: "", class: "comment-btn" %>
           <i class="fa-sharp fa-solid fa-paper-plane"></i>
