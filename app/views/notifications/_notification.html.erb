@@ -42,15 +42,14 @@
     <span>
       <% if notification.action == 'request'%>
         <%=link_to "ユーザーを見る", user_path(visitor, room_id: notification.room.id, visitor_id: visitor.id), class: "notification-user-show" %>
-      <% end %>
-      <% if notification.action == 'permission'%>
+      <% elsif notification.action == 'permission'%>
         <%=link_to "ルームを見る", room_path(notification.room_id, user_id: visited.id), class: "notification-room-show" %>
-      <% end %>
-      <% if notification.action == 'join'%>
+      <% elsif notification.action == 'join'%>
         <%=link_to "ルームへ移動する", room_chats_path(notification.room.id), class: "notification-user-join" %>
-      <% end %>
-      <% if notification.action == 'comment'%>
+      <% elsif notification.action == 'comment'%>
         <%=link_to "コメントを見る", room_path(notification.room.id), class: "notification-comment-show" %>
+      <%# <% elsif notification.action == 'reply_comment'%>
+        <%# <%=link_to "返信を見る", room_comment_reply_comments_path(notification.room.id, comment_id: notification.comment_id), class: "notification-comment-show" %>
       <% end %>
       <% if notification.checked == false%>
         <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>
