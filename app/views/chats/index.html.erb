@@ -61,7 +61,7 @@
                   <%= image_tag ("human.jpg") %>
                 <% end %>
                 <div class="message-user-name">
-                  <p><%=chat.user.nickname%></p>
+                  <p><%=link_to chat.user.nickname, user_path(chat.user.id) %></p>
                 </div>
               </div>
               <div class="message-content">
@@ -75,9 +75,13 @@
           <% if  chat.image.attached? %>
             <div class="chat-image-received">
               <div class="user-icon">
-                <%=image_tag "human.jpg", alt:"User 1"%>
+                <% if chat.user.avatar? %>
+                  <%= image_tag chat.user.avatar.url %>
+                <% else %>
+                  <%= image_tag ("human.jpg") %>
+                <% end %>
                 <div class="message-user-name">
-                  <p><%=chat.user.nickname%></p>
+                  <p><%=link_to chat.user.nickname, user_path(chat.user.id) %></p>
                 </div>
               </div>
               <%= image_tag chat.image.variant(resize: '300x300'), class: 'chat-image-content' %>
