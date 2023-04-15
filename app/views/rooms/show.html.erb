@@ -91,6 +91,8 @@
       </div>
       <% if current_user == @room.creator %>
         <%= link_to "返信", room_comment_reply_comments_path(@room, comment.id), class: "reply-comment-btn"%>
+      <% elsif comment.reply_comments.exists?%>
+        <%= link_to "返信一覧", room_comment_reply_comments_path(@room, comment.id), class: "reply-comment-show-btn"%>
       <% end %>
     </div>
   <% end %>

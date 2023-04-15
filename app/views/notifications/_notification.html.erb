@@ -48,8 +48,8 @@
         <%=link_to "ルームへ移動する", room_chats_path(notification.room.id), class: "notification-user-join" %>
       <% elsif notification.action == 'comment'%>
         <%=link_to "コメントを見る", room_path(notification.room.id), class: "notification-comment-show" %>
-      <%# <% elsif notification.action == 'reply_comment'%>
-        <%# <%=link_to "返信を見る", room_comment_reply_comments_path(notification.room.id, comment_id: notification.comment_id), class: "notification-comment-show" %>
+      <% elsif notification.action == 'reply_comment'%>
+        <%=link_to "返信を見る", room_comment_reply_comments_path(notification.room.id, comment_id: notification.comment.id), class: "notification-reply_comment-show" %>
       <% end %>
       <% if notification.checked == false%>
         <%=link_to "既読にする", notification_path(notification.id), method: :patch, class: "notification-update" %>

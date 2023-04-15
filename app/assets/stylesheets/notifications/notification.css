@@ -113,3 +113,15 @@
 .notification-comment-show:hover {
   color: #DDA0DD;
 }
+
+.notification-reply_comment-show {
+  color: #A0522D;
+  text-decoration: none;
+  border: 1px solid #A0522D;
+  padding: 5px;
+  font-size: 15px;
+}
+
+.notification-reply_comment-show:hover {
+  color: #A0522D;
+}

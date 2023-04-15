@@ -168,7 +168,7 @@
 }
 
 .comments {
-  margin: 20px 0;
+  margin-top: 20px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -204,5 +204,21 @@
 }
 
 .reply-comment-btn:hover {
+  color: white;
+}
+
+.reply-comment-show-btn {
+  width: 75px;
+  height: 35px;
+  background-color: #2F4F4F;
+  border-radius: 10px 10px;
+  text-align: center;
+  line-height: 35px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+.reply-comment-show-btn:hover {
   color: white;
 }
