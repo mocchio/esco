@@ -68,7 +68,7 @@
     <%= form_with(model: [@room, @comment], local: true) do |form| %>
       <h4>コメント</h4>
       <div class="comment-form-container">
-        <%= form.text_area :text, class: 'comment-form-message', rows: 1 %>
+        <%= form.text_area :text, class: 'comment-form-message', rows: 1, placeholder: "気になることを質問してみましょう！" %>
         <div class="comment-form-submit">
           <%= form.submit value: "", class: "comment-btn" %>
           <i class="fa-sharp fa-solid fa-paper-plane"></i>
@@ -89,7 +89,9 @@
           <%= comment.text %>
         </div>
       </div>
-      <% if current_user == @room.creator %>
+      <% if comment.reply_comments.exists?%>
+        <%= link_to "返信一覧", room_comment_reply_comments_path(@room, comment.id), class: "reply-comment-show-btn"%>
+      <% elsif current_user == @room.creator %>
         <%= link_to "返信", room_comment_reply_comments_path(@room, comment.id), class: "reply-comment-btn"%>
       <% end %>
     </div>

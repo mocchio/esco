@@ -78,16 +78,31 @@ class Room < ApplicationRecord
   end
 
   def create_notification_comment(current_user)
-    temp = Notification.where(["visitor_id = ? and visited_id = ? and room_id = ? and action = ? ", current_user.id, creator_id, id, 'comment'])
+    notification = current_user.active_notifications.new(
+      room_id: id,
+      visited_id: creator_id,
+      action: 'comment'
+    )
+    notification.save if notification.valid?
+  end
 
-    if temp.blank?
+  def create_notification_reply_comment(current_user, comment, room)
+    if current_user == comment.user
       notification = current_user.active_notifications.new(
         room_id: id,
-        visited_id: creator_id,
-        action: 'comment'
+        comment_id: comment.id,
+        visited_id: room.creator.id,
+        action: 'reply_comment'
       )
-      notification.save if notification.valid?
+    else
+      notification = current_user.active_notifications.new(
+        room_id: id,
+        comment_id: comment.id,
+        visited_id: comment.user.id,
+        action: 'reply_comment'
+      )
     end
+    notification.save if notification.valid?
   end
 
   def self.search(search)
